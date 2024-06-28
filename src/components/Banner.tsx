@@ -13,7 +13,7 @@ export default function Banner() {
         className="w-full h-full object-cover"
       />
       <div className="absolute bottom-0 flex flex-col items-center w-full pb-10 text-white uppercase">
-        <p>Jusqu'à 50% de réduction</p>
+        <p>Jusqu&apos;à 50% de réduction</p>
         <h1 className="font-extrabold text-lg">Shine in black</h1>
         <div className="flex gap-6 mt-4">
           <Link href="/">

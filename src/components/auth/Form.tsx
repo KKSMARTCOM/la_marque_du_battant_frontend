@@ -21,9 +21,9 @@ export default function Form({ method }: { method: string }) {
           </p>
         ) : (
           <p className="text-sm">
-            Créer votre compte pour accéder à l'historique de vos commandes, à
-            l'état de vos commandes, aux adresses enrégistrées et plus encore
-            Connectez-vous ci-dessous pour accéder à votre compte
+            Créer votre compte pour accéder à l&apos;historique de vos
+            commandes, à l&apos;état de vos commandes, aux adresses enrégistrées
+            et plus encore Connectez-vous ci-dessous pour accéder à votre compte
           </p>
         )}
       </div>
@@ -68,7 +68,7 @@ export default function Form({ method }: { method: string }) {
             </Link>{" "}
             et nos{" "}
             <Link href="/" className="underline">
-              conditions d'utilisation
+              conditions d&apos;utilisation
             </Link>
             .
           </small>

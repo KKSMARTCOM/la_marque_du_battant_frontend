@@ -41,7 +41,7 @@ export default function Footer() {
             <div>
               <input type="radio" />
               <label htmlFor="cug">
-                J'accepte la politique de confidentialité
+                J&apos;accepte la politique de confidentialité
               </label>
             </div>
           </form>
@@ -59,7 +59,7 @@ export default function Footer() {
 
           <ul className="flex flex-col gap-3">
             <li>
-              <h1 className="font-bold">Obtenir de l'aide</h1>
+              <h1 className="font-bold">Obtenir de l&apos;aide</h1>
             </li>
             <li>FAQ</li>
             <li>Expédition</li>
