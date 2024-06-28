@@ -6,7 +6,7 @@ export default function About() {
       <div className="w-full flex justify-center md:w-1/2">
         <div className="h-[80%] w-[80%] overflow-hidden">
           <Image
-            src="/citation.jpg"
+            src="./citation.jpg"
             width={800}
             height={800}
             alt=""
