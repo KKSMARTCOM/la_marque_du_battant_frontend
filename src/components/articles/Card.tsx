@@ -19,7 +19,7 @@ export default function Card({
         </div>
 
         <Image
-          src={img}
+          src={`.${img}`}
           alt=""
           width={150}
           height={150}
