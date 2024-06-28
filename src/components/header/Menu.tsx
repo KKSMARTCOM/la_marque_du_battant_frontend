@@ -14,7 +14,7 @@ export default function Menu() {
       />
       {open && (
         <div
-          className={`absolute bg-black h-screen top-0 right-[-16px] px-5 text-white transform transition-transform duration-[5000ms] ease-in-out ${
+          className={`absolute bg-black h-screen top-0 right-[-16px] px-5 text-white transform transition-transform duration-200 ease-in-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >

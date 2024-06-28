@@ -20,7 +20,7 @@ export default function Footer() {
             onClick={() => setOpen(false)}
           ></div>
           <div
-            className={`h-full w-1/3 bg-white fixed top-0 bottom-0 right-0 transform transition-transform duration-[5s] ease-in-out text-black ${
+            className={`h-full w-1/3 bg-white fixed top-0 bottom-0 right-0 transform transition-transform duration-200 ease-in-out text-black ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
           >
