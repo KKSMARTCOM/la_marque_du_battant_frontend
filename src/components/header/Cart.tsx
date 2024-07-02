@@ -1,14 +1,10 @@
 import { Fragment, useState } from "react";
 import { LuShoppingBag } from "react-icons/lu";
-import { BsXLg, BsTrash, BsPlus, BsDash } from "react-icons/bs";
-import Image from "next/image";
-import Button from "../Button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { BsXLg } from "react-icons/bs";
+
+import CartCard from "../cart/CartCard";
+import CartCheckout from "../cart/CartCheckout";
+import CartAccordion from "../cart/CartAccordion";
 
 export default function Cart() {
   const [open, setOpen] = useState(false);
@@ -16,7 +12,7 @@ export default function Cart() {
   return (
     <Fragment>
       <LuShoppingBag
-        className="w-8 h-8 cursor-pointer"
+        className="w-6 h-6 cursor-pointer"
         onClick={() => setOpen(true)}
       />
       {open && (
@@ -46,110 +42,14 @@ export default function Cart() {
                     {/* TOP */}
                     {/* Composant */}
                     <div className="px-6">
-                      <div className="flex gap-4">
-                        <div className="w-40 h-[10rem] flex justify-center items-center bg-gray-100">
-                          <Image
-                            src="./pull.png"
-                            alt=""
-                            width={100}
-                            height={110}
-                            className="object-cover"
-                          />
-                        </div>
-                        <div>
-                          <p>T-shirt Basic</p>
-                          <small className="text-slate-400">Large</small>
-                          <p>$71.95</p>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center mt-4">
-                        <div>
-                          <h1>Quantité</h1>
-                        </div>
-                        <div className="flex gap-2 items-center">
-                          <div className="flex justify-between items-center px-4 py-2 border border-gray-300 rounded-full w-40 hover:border-black">
-                            <BsDash className="w-6 h-6 cursor-pointer" />
-                            <p>1</p>
-                            <BsPlus className="w-6 h-6 cursor-pointer" />
-                          </div>
-                          <div className="p-2 cursor-pointer rounded-full border border-transparent hover:border hover:border-gray-200">
-                            <BsTrash className="w-6 h-6" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center mt-2 pb-6 border-b border-black">
-                        <div>
-                          <h1>Taille</h1>
-                        </div>
-                        <div className="flex gap-2 items-center">
-                          <div className="flex justify-between items-center px-4 py-2 border border-gray-300 rounded-full w-[13rem] hover:border-black">
-                            <p>Changement</p>
-                            <span className="w-2 h-2 bg-black rounded-full"></span>
-                            <p>Large</p>
-                          </div>
-                        </div>
-                      </div>
+                      <CartCard />
                     </div>
                     <div className="px-6 mt-10">
-                      <Accordion type="single" collapsible>
-                        <AccordionItem value="item-1">
-                          <AccordionTrigger>
-                            Informations sur le paiement
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            Yes. It adheres to the WAI-ARIA design pattern. Yes.
-                            It adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern. Expédition
-                            et retours
-                          </AccordionContent>
-                        </AccordionItem>
-                      </Accordion>
-                      <Accordion type="single" collapsible>
-                        <AccordionItem value="item-1">
-                          <AccordionTrigger>
-                            Expédition et retours
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            Yes. It adheres to the WAI-ARIA design pattern. Yes.
-                            It adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.Yes. It
-                            adheres to the WAI-ARIA design pattern.
-                          </AccordionContent>
-                        </AccordionItem>
-                      </Accordion>
+                      <CartAccordion />
                     </div>
                     {/* BOTTOM */}
                     <div className="absolute bottom-0 h-[10rem] w-full flex flex-col gap-6 justify-center items-center bg-white border-t border-black px-4">
-                      <form
-                        action=""
-                        className="flex justify-between w-full gap-2 border-b border-gray-300"
-                      >
-                        <div className="w-full">
-                          <input
-                            type="text"
-                            placeholder="Remise..."
-                            className="w-full placeholder:text-gray-400 py-2 px-6 outline-none"
-                          />
-                        </div>
-                        <button className="">Appliquer</button>
-                      </form>
-                      <div className="w-full">
-                        <Button
-                          color="black"
-                          title={`Procéder au paiement  $71.95`}
-                        />
-                      </div>
-                      <small className="text-gray-400">
-                        Dépenser €178.05 plus pour bénéficier de la livraison
-                        gratuite
-                      </small>
+                      <CartCheckout />
                     </div>
                   </div>
                 )}

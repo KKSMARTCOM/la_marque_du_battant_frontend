@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <Fragment>
       <LuUser2
-        className="w-8 h-8 cursor-pointer"
+        className="w-6 h-6 cursor-pointer"
         onClick={() => setOpen(true)}
       />
       {open && (
@@ -41,7 +41,7 @@ export default function Footer() {
               </div>
               <div className="mt-[5rem]">
                 <div className="w-full flex justify-center py-[3rem]">
-                  <Image src="./battant.png" alt="" width={100} height={100} />
+                  <Image src="/battant.png" alt="" width={100} height={100} />
                 </div>
                 {authMethod && <Form method="login" />}
                 {authMethod === false && <Form method="register" />}

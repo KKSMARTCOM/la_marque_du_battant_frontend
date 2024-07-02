@@ -2,6 +2,7 @@
 import Button from "@/components/Button";
 import Input from "@/components/auth/Input";
 import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Fragment } from "react";
 
 export default function Form({ method }: { method: string }) {
@@ -41,8 +42,8 @@ export default function Form({ method }: { method: string }) {
           <Input type="text" placeholder="Confirmez mot de passe*" />
         )}
       </div>
-      <div className="flex justify-start items-start w-full gap-4">
-        <input type="checkbox" className="h-5 w-5 cursor-pointer" />
+      <div className="flex justify-start items-center w-full gap-4">
+        <Checkbox />
         {method === "login" ? (
           <p>Souvenez-vous de moi.</p>
         ) : (

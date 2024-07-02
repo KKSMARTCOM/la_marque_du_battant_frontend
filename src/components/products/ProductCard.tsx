@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Card({
+export default function ProductCard({
   img,
   name,
   price,
@@ -11,7 +12,7 @@ export default function Card({
 }) {
   return (
     <div className="w-full">
-      <div className="w-full h-80 bg-gray-100 flex flex-col justify-center items-center relative">
+      <div className="w-full h-80 bg-gray-100 flex flex-col justify-center items-center relative group overflow-hidden">
         <div className="absolute top-0 left-0 p-2">
           <small className="py-1 px-2 bg-white rounded-full cursor-grab">
             Nouveau
@@ -19,20 +20,30 @@ export default function Card({
         </div>
 
         <Image
-          src={`.${img}`}
+          src={`${img}`}
           alt=""
           width={150}
           height={150}
           className="object-cover transition duration-700 ease-in-out transform hover:scale-150 cursor-pointer"
         />
-        <div className="absolute bottom-[15px]">
+        <div className="absolute bottom-[15px] hidden group-hover:block">
           <div className="flex w-full px-6">
-            <ul className="bg-white w-2/3 rounded-full px-4 py-2 flex gap-4">
-              <li>XS</li>
-              <li>M</li>
-              <li>S</li>
-              <li>L</li>
-              <li>...</li>
+            <ul className="bg-white flex-1 rounded-full px-4 py-2 flex gap-4">
+              <Link href="">
+                <li>XS</li>
+              </Link>
+              <Link href="">
+                <li>M</li>
+              </Link>
+              <Link href="">
+                <li>S</li>
+              </Link>
+              <Link href="">
+                <li>L</li>
+              </Link>
+              <Link href="">
+                <li>...</li>
+              </Link>
             </ul>
             <button className="bg-black text-nowrap rounded-full px-1 py-2 text-white">
               Vue rapide

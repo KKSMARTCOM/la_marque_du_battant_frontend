@@ -1,8 +1,8 @@
 "use client";
-import Card from "@/components/articles/Card";
-import NextArrow from "@/components/articles/NextArrow";
-import PrevArrow from "@/components/articles/PrevArrow";
-import { articles } from "@/data";
+import ProductCard from "@/components/products/ProductCard";
+import NextArrow from "@/components/products/NextArrow";
+import PrevArrow from "@/components/products/PrevArrow";
+import { products } from "@/data";
 
 import Slider from "react-slick";
 
@@ -66,8 +66,8 @@ export default function Sliders() {
   return (
     <div className="relative">
       <Slider {...settings}>
-        {articles.map((item, index) => (
-          <Card
+        {products.map((item: any, index: number) => (
+          <ProductCard
             key={index}
             img={item.image}
             name={item.name}
