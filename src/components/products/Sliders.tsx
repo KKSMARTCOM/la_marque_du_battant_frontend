@@ -5,6 +5,8 @@ import PrevArrow from "@/components/products/PrevArrow";
 import { products } from "@/data";
 
 import Slider from "react-slick";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Sliders() {
   //const [slideToShow, setSlideToShow] = useState(4);
@@ -62,17 +64,21 @@ export default function Sliders() {
       console.log(slideToShow);
     }, */
   };
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
+  if (!isClient) {
+    return null;
+  }
   return (
     <div className="relative">
       <Slider {...settings}>
         {products.map((item: any, index: number) => (
-          <ProductCard
-            key={index}
-            img={item.image}
-            name={item.name}
-            price={item.price}
-          />
+          <Link href={`/products/${item.id}`} key={index}>
+            <ProductCard product={item} />
+          </Link>
         ))}
       </Slider>
       {/* <div className="h-[2px] bg-gray-200 w-[250px] absolute -top-[15px] right-0">

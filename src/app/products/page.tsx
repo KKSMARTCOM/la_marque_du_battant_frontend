@@ -1,9 +1,19 @@
+"use client";
 import { products } from "@/data";
 import ProductCard from "@/components/products/ProductCard";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ProductFilter from "@/components/products/ProductFilter";
+import Link from "next/link";
 
 export default function Products() {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
   return (
     <Fragment>
       <div className="mt-10 px-6">
@@ -17,14 +27,11 @@ export default function Products() {
         <ProductFilter />
         <div className="flex-1">
           <div className="grid grid-cols-4 gap-2 flex-wrap">
-            {products.map((art: any, index: number) => {
+            {products.map((item: any, index: number) => {
               return (
-                <ProductCard
-                  key={index}
-                  img={art.image}
-                  name={art.name}
-                  price={art.price}
-                />
+                <Link href={`/products/${item.id}`} key={index}>
+                  <ProductCard product={item} />
+                </Link>
               );
             })}
           </div>

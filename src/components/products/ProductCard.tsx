@@ -1,18 +1,15 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function ProductCard({
-  img,
-  name,
-  price,
+  product,
 }: {
-  img: string;
-  name: string;
-  price: number;
+  product: { image: string; name: string; price: number };
 }) {
   return (
     <div className="w-full">
-      <div className="w-full h-80 bg-gray-100 flex flex-col justify-center items-center relative group overflow-hidden">
+      <div className="w-full h-80 bg-gray-100 flex flex-col justify-center items-center cursor-pointer relative group overflow-hidden">
         <div className="absolute top-0 left-0 p-2">
           <small className="py-1 px-2 bg-white rounded-full cursor-grab">
             Nouveau
@@ -20,7 +17,7 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={`${img}`}
+          src={`${product.image}`}
           alt=""
           width={150}
           height={150}
@@ -52,8 +49,8 @@ export default function ProductCard({
         </div>
       </div>
       <div>
-        <p>{name}</p>
-        <small className="text-slate-400">${price}</small>
+        <p>{product.name}</p>
+        <small className="text-slate-400">${product.price}</small>
       </div>
     </div>
   );
