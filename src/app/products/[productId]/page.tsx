@@ -6,6 +6,12 @@ import ProductDetailAccordion from "@/components/products/ProductDetailAccordion
 import ProductDetailCarrousel from "@/components/products/ProductDetailCarrousel";
 import { products } from "@/data";
 
+export function generateStaticParams() {
+  return products.map(
+    (item) => item.id
+  ) /* [{ productId: "1" }, { id: "2" }, { id: "3" }] */;
+}
+
 export default function Page({ params }: { params: { productId: string } }) {
   const product = products.find((item) => {
     return parseInt(item.id) === parseInt(params.productId);
