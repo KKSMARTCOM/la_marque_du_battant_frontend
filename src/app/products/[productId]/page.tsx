@@ -7,9 +7,9 @@ import ProductDetailCarrousel from "@/components/products/ProductDetailCarrousel
 import { products } from "@/data";
 
 export function generateStaticParams() {
-  return products.map(
-    (item) => item.id
-  ) /* [{ productId: "1" }, { id: "2" }, { id: "3" }] */;
+  return products.map((item) => {
+    productId: item.id;
+  });
 }
 
 export default function Page({ params }: { params: { productId: string } }) {
