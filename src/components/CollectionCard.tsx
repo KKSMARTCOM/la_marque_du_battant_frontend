@@ -6,7 +6,7 @@ export default function CollectionCard() {
     <div className="w-full h-[28rem] bg-gradient-to-t from-gray-400 to-gray-50 flex flex-col justify-center items-center relative">
       <div className="w-60 h-80 overflow-hidden">
         <Image
-          src="./women-cloth.png"
+          src="/women-cloth.png"
           alt=""
           width={800}
           height={800}

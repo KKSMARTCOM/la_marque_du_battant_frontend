@@ -5,7 +5,7 @@ export default function EventCard() {
     <div>
       <div className="w-full h-[24rem] overflow-hidden">
         <Image
-          src="./citation.jpg"
+          src="/citation.jpg"
           width={800}
           height={800}
           alt=""

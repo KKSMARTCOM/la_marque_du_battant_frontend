@@ -5,11 +5,14 @@ import Menu from "@/components/header/Menu";
 import Search from "@/components/header/Search";
 import UserAuth from "@/components/auth/UserAuth";
 import Cart from "@/components/header/Cart";
-import Button from "@/components/header/Button";
+import BlogButton from "@/components/header/BlogButton";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Header() {
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
+
   const handleStickyNavbar = () => {
     if (window.scrollY >= 60) {
       setSticky(true);
@@ -18,22 +21,27 @@ export default function Header() {
     }
   };
 
+  const path = usePathname();
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyNavbar);
-  });
+    if (path != "/") {
+      setSticky(true);
+    } else {
+      window.addEventListener("scroll", handleStickyNavbar);
+    }
+  }, []);
 
   return (
     <div
-      className={`h-20 px-4 left-0 top-0 right-0 ${
+      className={`h-14 px-4 left-0 top-0 right-0 ${
         sticky
-          ? "bg-white text-black fixed z-[9999] border-b border-gray-200"
+          ? `bg-white text-black fixed z-[9999] border-b border-gray-200`
           : "absolute bg-transparent text-white"
       }`}
     >
       {/* MOBILE */}
       <div className="h-full flex justify-between items-center relative md:hidden">
-        <Link href="/" className="text-lg font-bold uppercase">
-          la marque du battant
+        <Link href="/" className="">
+          <Image src="/battant.png" alt="" width={40} height={40} />
         </Link>
         <Menu />
       </div>
@@ -42,22 +50,46 @@ export default function Header() {
         <div className="flex items-center justify-between w-full">
           {/* LEFT */}
           <div className="flex items-center gap-5">
-            <Link href="/" className="text-lg text-nowrap font-bold uppercase">
-              la marque <br />
-              du battant
+            <Link href="/" className="">
+              <Image src="/battant.png" alt="" width={40} height={40} />
             </Link>
-            <ul className="flex items-center gap-3">
-              <li>Homme</li>
-              <li>Femme</li>
-              <li>Accessoires</li>
-              <li>Collections</li>
-              <li className="text-red-600">Evènements</li>
+            <ul className="flex items-center gap-3 flex-wrap font-semibold">
+              <Link
+                href="/products"
+                className="border-b-2 border-transparent py-4 hover:border-black"
+              >
+                <li>Homme</li>
+              </Link>
+              <Link
+                href="/products"
+                className="border-b-2 border-transparent py-4 hover:border-black"
+              >
+                <li>Femme</li>
+              </Link>
+              <Link
+                href="/products"
+                className="border-b-2 border-transparent py-4 hover:border-black"
+              >
+                <li>Accessoires</li>
+              </Link>
+              <Link
+                href="/products"
+                className="border-b-2 border-transparent py-4 hover:border-black"
+              >
+                <li>Collections</li>
+              </Link>
+              <Link
+                href="/products"
+                className="border-b-2 border-transparent py-4 hover:border-black"
+              >
+                <li>Evènements</li>
+              </Link>
             </ul>
           </div>
           {/* RIGHT */}
           <div className="flex items-center gap-5">
             <Search scrolled={sticky} />
-            <Button title="BLOG" scrolled={sticky} />
+            <BlogButton title="BLOG" scrolled={sticky} />
             <UserAuth />
             <Cart />
           </div>

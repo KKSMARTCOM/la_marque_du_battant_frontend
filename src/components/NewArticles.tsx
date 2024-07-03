@@ -1,4 +1,4 @@
-import Sliders from "@/components/articles/Sliders";
+import Sliders from "@/components/products/Sliders";
 
 export default function NewArticles() {
   return (
