@@ -1,5 +1,4 @@
-import Link from "next/link";
-import "../globals.css";
+import "../../globals.css";
 import LeftSideBar from "@/components/store/layouts/LeftSideBar";
 import TopBar from "@/components/store/layouts/TopBar";
 

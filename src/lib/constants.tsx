@@ -8,7 +8,7 @@ import {
 
 export const navLinks = [
   {
-    url: "/",
+    url: "/dashboard",
     icon: <LayoutDashboard />,
     label: "Dashboard",
   },
@@ -18,7 +18,7 @@ export const navLinks = [
     label: "Collections",
   },
   {
-    url: "/products",
+    url: "/articles",
     icon: <Tag />,
     label: "Produits",
   },
@@ -31,5 +31,10 @@ export const navLinks = [
     url: "/customers",
     icon: <UsersRound />,
     label: "Clients",
+  },
+  {
+    url: "/events",
+    icon: <UsersRound />,
+    label: "Evènements",
   },
 ];

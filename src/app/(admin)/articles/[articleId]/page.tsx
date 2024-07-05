@@ -1,13 +1,13 @@
 "use client";
 
-import ProductForm from "@/components/admin/products/ProductForm";
+import ProductForm from "@/components/admin/articles/ProductForm";
 import Loader from "@/components/custom ui/Loader";
 import React, { useState } from "react";
 
 export default function ProductDetails({
   params,
 }: {
-  params: { productId: string };
+  params: { articleId: string };
 }) {
   const [loading, setLoading] = useState(true);
   const [productDetails, setProductDetails] = useState<ProductType | null>(

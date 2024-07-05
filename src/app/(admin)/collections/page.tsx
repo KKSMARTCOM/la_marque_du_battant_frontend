@@ -42,7 +42,7 @@ export default function Collections() {
           Create Collection
         </Button>
       </div>
-      <Separator className="bg-grey-1 my-4" />
+      <Separator className="bg-black my-4" />
       <DataTable columns={columns} data={collections} searchKey="title" />
     </div>
   );

@@ -1,12 +1,11 @@
 import Link from "next/link";
-import "../globals.css";
+import "../../globals.css";
 
 export default function ProductsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <section>
       <nav className="mt-14">

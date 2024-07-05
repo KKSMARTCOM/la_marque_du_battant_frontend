@@ -1,4 +1,4 @@
-import { Checkbox } from "@radix-ui/react-checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 import ProductAccordion from "./ProductAccordion";
 
 export default function ProductFilter() {

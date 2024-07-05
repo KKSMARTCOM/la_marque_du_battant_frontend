@@ -10,7 +10,7 @@ const LeftSideBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="h-screen left-0 top-0 sticky p-10 flex items-center flex-col gap-16 bg-white shadow-xl max-lg:hidden">
+    <div className="h-screen left-0 top-0 sticky p-10 flex items-center flex-col gap-10 bg-white shadow-xl max-lg:hidden">
       <div className="w-20 h-20 overflow-hidden">
         <Image
           src="/battant.png"
@@ -21,12 +21,12 @@ const LeftSideBar = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-8">
         {navLinks.map((link) => (
           <Link
             href={link.url}
             key={link.label}
-            className={`flex gap-4 text-body-medium ${
+            className={`flex gap-4 text-body-medium pb-2 border-b border-gray-200 ${
               pathname === link.url ? "text-blue-1" : "text-grey-1"
             }`}
           >
