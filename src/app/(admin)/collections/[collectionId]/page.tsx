@@ -4,11 +4,7 @@ import { useState } from "react";
 import Loader from "@/components/custom ui/Loader";
 import CollectionForm from "@/components/admin/collections/CollectionForm";
 
-export default function CollectionDetails({
-  params,
-}: {
-  params: { collectionId: string };
-}) {
+export default function CollectionDetails() {
   const [loading, setLoading] = useState(false);
   const [collectionDetails, setCollectionDetails] =
     useState<CollectionType | null>(null);

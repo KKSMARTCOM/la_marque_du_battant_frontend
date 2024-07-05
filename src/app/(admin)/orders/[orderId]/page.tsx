@@ -1,11 +1,7 @@
 import { columns } from "@/components/admin/orderItems/OrderItemsColums";
 import { DataTable } from "@/components/custom ui/DataTable";
 
-export default function OrderDetails({
-  params,
-}: {
-  params: { orderId: string };
-}) {
+export default function OrderDetails() {
   return (
     <div className="flex flex-col p-10 gap-5">
       <p className="text-base-bold">
