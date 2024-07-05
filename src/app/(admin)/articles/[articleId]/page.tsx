@@ -1,4 +1,3 @@
-"use client";
 import { productsData } from "@/lib/data";
 import ProductForm from "@/components/admin/articles/ProductForm";
 import Loader from "@/components/custom ui/Loader";
