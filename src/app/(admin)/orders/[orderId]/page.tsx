@@ -1,6 +1,12 @@
 import { columns } from "@/components/admin/orderItems/OrderItemsColums";
 import { DataTable } from "@/components/custom ui/DataTable";
+import { ordersData } from "@/lib/data";
 
+export function generateStaticParams() {
+  return ordersData.map((item) => ({
+    orderId: item._id,
+  }));
+}
 export default function OrderDetails() {
   return (
     <div className="flex flex-col p-10 gap-5">

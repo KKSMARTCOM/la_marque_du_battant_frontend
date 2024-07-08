@@ -1,17 +1,13 @@
-"use client";
-
-import { useState } from "react";
+import { collectionsData } from "@/lib/data";
 import Loader from "@/components/custom ui/Loader";
 import CollectionForm from "@/components/admin/collections/CollectionForm";
 
-export default function CollectionDetails() {
-  const [loading, setLoading] = useState(false);
-  const [collectionDetails, setCollectionDetails] =
-    useState<CollectionType | null>(null);
+export function generateStaticParams() {
+  return collectionsData.map((item) => ({
+    collectionId: `${item._id}`,
+  }));
+}
 
-  return loading ? (
-    <Loader />
-  ) : (
-    <CollectionForm initialData={collectionDetails} />
-  );
+export default function CollectionDetails() {
+  return <CollectionForm />;
 }

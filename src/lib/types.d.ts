@@ -42,3 +42,12 @@ type CustomerType = {
   name: string;
   email: string;
 };
+
+type EventType = {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+  image: string;
+};

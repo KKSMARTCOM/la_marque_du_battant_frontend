@@ -1,3 +1,10 @@
+import { eventsData } from "@/lib/data";
+
+export function generateStaticParams() {
+  return eventsData.map((item) => ({
+    eventId: item.id,
+  }));
+}
 export default function EventDetails() {
   return (
     <div className="px-10 py-5">

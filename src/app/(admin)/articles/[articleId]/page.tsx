@@ -1,24 +1,13 @@
-"use client";
 import { productsData } from "@/lib/data";
 import ProductForm from "@/components/admin/articles/ProductForm";
 import Loader from "@/components/custom ui/Loader";
-import React, { useState } from "react";
-
-export default function ProductDetails({
-  params,
-}: {
-  params: { articleId: string };
-}) {
-  const [loading, setLoading] = useState(true);
-  const [productDetails, setProductDetails] = useState<ProductType | null>(
-    null
-  );
-
-  return loading ? <Loader /> : <ProductForm initialData={productDetails} />;
-}
+import React from "react";
 
 export function generateStaticParams() {
-  return productsData.map((item) => {
-    item._id;
-  });
+  return productsData.map((item) => ({
+    articleId: `${item._id}`,
+  }));
+}
+export default function ProductDetails() {
+  return <ProductForm />;
 }

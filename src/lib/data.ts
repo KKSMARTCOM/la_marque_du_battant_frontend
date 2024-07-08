@@ -425,10 +425,104 @@ const customersData: CustomerType[] = [
   },
 ];
 
+const eventsData: EventType[] = [
+  {
+    id: "1",
+    title: "Conférence de Motivation avec John Doe",
+    description:
+      "Un événement inspirant avec le célèbre orateur John Doe. Apprenez à surmonter les obstacles et à atteindre vos objectifs.",
+    date: "2024-07-15T09:00:00Z",
+    location: "Centre de Conférence Paris, France",
+    image: "https://example.com/images/john-doe-conference.jpg",
+  },
+  {
+    id: "2",
+    title: "Atelier de Développement Personnel avec Jane Smith",
+    description:
+      "Participez à un atelier interactif avec Jane Smith pour développer des compétences en leadership et en communication.",
+    date: "2024-08-20T14:00:00Z",
+    location: "Hôtel Hilton, Lyon, France",
+    image: "https://example.com/images/jane-smith-workshop.jpg",
+  },
+  {
+    id: "3",
+    title: "Séminaire de Motivation avec Albert Dupont",
+    description:
+      "Rejoignez Albert Dupont pour un séminaire sur la motivation et la gestion du temps. Améliorez votre productivité et atteignez vos objectifs.",
+    date: "2024-09-10T10:00:00Z",
+    location: "Palais des Congrès, Marseille, France",
+    image: "https://example.com/images/albert-dupont-seminar.jpg",
+  },
+  {
+    id: "4",
+    title: "Conférence Internationale sur la Motivation",
+    description:
+      "Une conférence réunissant des experts du monde entier pour discuter des dernières recherches et techniques en matière de motivation.",
+    date: "2024-10-05T09:00:00Z",
+    location: "Centre International de Conférence, Nice, France",
+    image: "https://example.com/images/international-conference.jpg",
+  },
+  {
+    id: "5",
+    title: "Webinaire de Motivation en Ligne",
+    description:
+      "Participez à notre webinaire en ligne pour apprendre des stratégies de motivation efficaces depuis le confort de votre domicile.",
+    date: "2024-11-12T18:00:00Z",
+    location: "En ligne",
+    image: "https://example.com/images/online-webinar.jpg",
+  },
+  {
+    id: "6",
+    title: "Rencontre avec les Leaders de la Motivation",
+    description:
+      "Une occasion unique de rencontrer et d'interagir avec les leaders du domaine de la motivation. Apprenez de leurs expériences et de leurs succès.",
+    date: "2024-12-01T15:00:00Z",
+    location: "Grand Hôtel, Bordeaux, France",
+    image: "https://example.com/images/motivation-leaders-meeting.jpg",
+  },
+  {
+    id: "7",
+    title: "Conférence sur la Motivation des Jeunes",
+    description:
+      "Un événement dédié à la motivation des jeunes, avec des ateliers et des sessions de mentorat pour les aider à atteindre leur plein potentiel.",
+    date: "2024-07-25T10:00:00Z",
+    location: "Université de Strasbourg, Strasbourg, France",
+    image: "https://example.com/images/youth-motivation-conference.jpg",
+  },
+  {
+    id: "8",
+    title: "Sommet de la Motivation et du Bien-être",
+    description:
+      "Un sommet axé sur la motivation et le bien-être personnel, avec des experts en santé mentale et en développement personnel.",
+    date: "2024-08-15T09:00:00Z",
+    location: "Centre de Bien-être, Lille, France",
+    image: "https://example.com/images/motivation-wellness-summit.jpg",
+  },
+  {
+    id: "9",
+    title: "Atelier de Motivation pour Entrepreneurs",
+    description:
+      "Un atelier destiné aux entrepreneurs pour les aider à rester motivés et à surmonter les défis du monde des affaires.",
+    date: "2024-09-30T13:00:00Z",
+    location: "Incubateur de Startups, Toulouse, France",
+    image: "https://example.com/images/entrepreneur-motivation-workshop.jpg",
+  },
+  {
+    id: "10",
+    title: "Session de Coaching en Motivation avec Pierre Martin",
+    description:
+      "Une session de coaching en petit groupe avec Pierre Martin, pour recevoir des conseils personnalisés et booster votre motivation.",
+    date: "2024-10-20T14:00:00Z",
+    location: "Salle de Conférence, Nantes, France",
+    image: "https://example.com/images/pierre-martin-coaching.jpg",
+  },
+];
+
 export {
   collectionsData,
   productsData,
   ordersData,
   orderItemsData,
   customersData,
+  eventsData,
 };

@@ -7,6 +7,11 @@ import ProductDetailCarrousel from "@/components/store/products/ProductDetailCar
 import { products } from "@/data";
 //import {generateStacticParams} from "@/index.ts"
 
+export function generateStaticParams() {
+  return products.map((item) => ({
+    productId: item.id,
+  }));
+}
 export default function Page({ params }: { params: { productId: string } }) {
   const product = products.find((item) => {
     return parseInt(item.id) === parseInt(params.productId);
@@ -87,10 +92,4 @@ export default function Page({ params }: { params: { productId: string } }) {
       </div>
     </React.Fragment>
   );
-}
-
-export function generateStaticParams() {
-  return products.map((item) => {
-    item.id;
-  });
 }
