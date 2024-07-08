@@ -9,7 +9,7 @@ export default function TopBar() {
         <div className="flex flex-col items-center mt-6">
           <div className="w-20 h-20 overflow-hidden">
             <Image
-              src="/battant.png"
+              src="./battant.png"
               alt=""
               width={500}
               height={500}

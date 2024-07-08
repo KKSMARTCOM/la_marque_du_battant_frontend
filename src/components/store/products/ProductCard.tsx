@@ -17,7 +17,7 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={`${product.image}`}
+          src={`.${product.image}`}
           alt=""
           width={150}
           height={150}

@@ -7,7 +7,7 @@ export default function FavorisCard() {
     <div className="w-60 flex flex-col relative overflow-hidden mt-4">
       <div className="w-full h-[18rem] cursor-pointer">
         <Image
-          src="/t-shirt.png"
+          src="./t-shirt.png"
           alt=""
           width={500}
           height={500}

@@ -5,7 +5,6 @@ import { BsHeart } from "react-icons/bs";
 import ProductDetailAccordion from "@/components/store/products/ProductDetailAccordion";
 import ProductDetailCarrousel from "@/components/store/products/ProductDetailCarrousel";
 import { products } from "@/data";
-//import {generateStacticParams} from "@/index.ts"
 
 export function generateStaticParams() {
   return products.map((item) => ({
@@ -24,7 +23,7 @@ export default function Page({ params }: { params: { productId: string } }) {
           <div className="flex-1 bg-gray-100">
             <Image
               alt=""
-              src={product!.image}
+              src={`.${product!.image}`}
               height={1000}
               width={800}
               className="object-cover"

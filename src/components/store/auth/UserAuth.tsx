@@ -41,7 +41,7 @@ export default function Footer() {
               </div>
               <div className="mt-[5rem]">
                 <div className="w-full flex justify-center py-[3rem]">
-                  <Image src="/battant.png" alt="" width={100} height={100} />
+                  <Image src="./battant.png" alt="" width={100} height={100} />
                 </div>
                 {authMethod && <Form method="login" />}
                 {authMethod === false && <Form method="register" />}

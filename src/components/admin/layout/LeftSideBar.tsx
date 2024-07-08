@@ -13,7 +13,7 @@ const LeftSideBar = () => {
     <div className="h-screen left-0 top-0 sticky p-10 flex items-center flex-col gap-10 bg-white shadow-xl max-lg:hidden">
       <div className="w-20 h-20 overflow-hidden">
         <Image
-          src="/battant.png"
+          src="./battant.png"
           alt="logo"
           width={150}
           height={70}

@@ -6,7 +6,7 @@ export default function Banner() {
   return (
     <div className="h-screen bg-slate-500">
       <Image
-        src="/banner.jpg"
+        src="./banner.jpg"
         width={800}
         height={800}
         alt=""

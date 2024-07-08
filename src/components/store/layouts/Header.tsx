@@ -41,7 +41,7 @@ export default function Header() {
       {/* MOBILE */}
       <div className="h-full flex justify-between items-center relative md:hidden">
         <Link href="/" className="">
-          <Image src="/battant.png" alt="" width={40} height={40} />
+          <Image src="./battant.png" alt="" width={40} height={40} />
         </Link>
         <Menu />
       </div>
@@ -51,7 +51,7 @@ export default function Header() {
           {/* LEFT */}
           <div className="flex items-center gap-5">
             <Link href="/" className="">
-              <Image src="/battant.png" alt="" width={40} height={40} />
+              <Image src="./battant.png" alt="" width={40} height={40} />
             </Link>
             <ul className="flex items-center gap-3 font-semibold">
               <Link
