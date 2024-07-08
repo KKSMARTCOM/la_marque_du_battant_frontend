@@ -53,7 +53,15 @@ export default function Form({ method }: { method: string }) {
           </p>
         )}
       </div>
-      <Button title={submit_title} color="black" />
+      {method === "login" ? (
+        <Link href="/dashboard">
+          <Button title={submit_title} color="black" />
+        </Link>
+      ) : (
+        <Link href="/account">
+          <Button title={submit_title} color="black" />
+        </Link>
+      )}
 
       {method === "login" ? (
         <Link href="/" className="underline text-slate-400 text-center">
