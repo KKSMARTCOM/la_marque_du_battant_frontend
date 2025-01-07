@@ -1,3 +1,12 @@
+type UserType = {
+  id?: string;
+  lastname?: string;
+  firstname?: string;
+  email: string;
+  password: string;
+  role: string;
+};
+
 type CollectionType = {
   _id: string;
   title: string;
@@ -7,19 +16,22 @@ type CollectionType = {
 };
 
 type ProductType = {
-  _id: string;
-  title: string;
+  id: string;
+  name: string;
   description: string;
-  media: [string];
+  main_image: string;
+  additionnal_images: string;
   category: string;
-  collections: [...CollectionType];
-  tags: [...string];
-  sizes: [...string];
-  colors: [...string];
+  status: string;
+  collections: CollectionType[];
+  tags: string;
+  size: string;
+  colors: string;
   price: number;
+  quantity: number;
   expense: number;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: string;
+  updated_at: string;
 };
 
 type OrderColumnType = {
@@ -50,4 +62,12 @@ type EventType = {
   date: string;
   location: string;
   image: string;
+};
+
+type RoleType = {
+  id: string;
+  name: string;
+  guard_name: string;
+  created_at: string;
+  updated_at: string;
 };

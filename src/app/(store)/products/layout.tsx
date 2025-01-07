@@ -8,7 +8,7 @@ export default function ProductsLayout({
 }>) {
   return (
     <section>
-      <nav className="mt-14">
+      <nav className="mt-16">
         <ul className="flex gap-4 px-4 border-b border-gray-200">
           <Link href="/products" className="px-2 border-b-2 border-black py-4">
             <li>Tous</li>

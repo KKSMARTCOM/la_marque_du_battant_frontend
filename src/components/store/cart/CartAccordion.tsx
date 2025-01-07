@@ -12,12 +12,11 @@ export default function CartAccordion() {
           Informations sur le paiement
         </AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern. Yes. It adheres to the
-          WAI-ARIA design pattern.Yes. It adheres to the WAI-ARIA design
-          pattern.Yes. It adheres to the WAI-ARIA design pattern.Yes. It adheres
-          to the WAI-ARIA design pattern.Yes. It adheres to the WAI-ARIA design
-          pattern.Yes. It adheres to the WAI-ARIA design pattern. Expédition et
-          retours
+          <small>
+            Nous proposons les différents modes de paiement suivants :
+            MobileMoney, MoovMoney, CeltiisCash, OrangeMoney, Visa, Mastercard,
+            American Express.
+          </small>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
@@ -25,11 +24,16 @@ export default function CartAccordion() {
           Expédition et retours
         </AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern. Yes. It adheres to the
-          WAI-ARIA design pattern.Yes. It adheres to the WAI-ARIA design
-          pattern.Yes. It adheres to the WAI-ARIA design pattern.Yes. It adheres
-          to the WAI-ARIA design pattern.Yes. It adheres to the WAI-ARIA design
-          pattern.Yes. It adheres to the WAI-ARIA design pattern.
+          <small>
+            Veuillez noter que les délais de livraison sont plus longs pendant
+            les périodes de vente en raison du volume élevé de commandes.
+            <br /> Si vous n&apos;êtes pas satisfait de votre achat, nous
+            offrons une généreuse politique de retour de 14 jours sur tous nos
+            articles, à l&apos;exception des slips, bodies, maillots de bain,
+            masques, bijoux percés et oreillettes. <br /> Pour des raisons
+            d&apos;hygiène, ces articles ne peuvent être retournés ou échangés,
+            sauf s&apos;ils sont défectueux.
+          </small>
         </AccordionContent>
       </AccordionItem>
     </Accordion>

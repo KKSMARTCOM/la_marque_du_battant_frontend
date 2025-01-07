@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="bg-black pt-10 pb-2 px-6 text-white">
+    <div className="bg-black pt-10 pb-2 px-6 text-white container mx-auto">
       {/* TOP */}
       <div className="flex max-lg:block">
         {/* LEFT */}
@@ -12,7 +12,7 @@ export default function Footer() {
           </p>
           <p>Je suis intéressé par :</p>
           <form action="" className="flex flex-col gap-4">
-            <div className="grid grid-cols-2 w-[40rem]">
+            <div className="grid grid-cols-2 gap-2 w-full md:w-[40rem]">
               <div>
                 <input type="radio" name="cloths" />{" "}
                 <label htmlFor="men">Vêtements pour hommes</label>
@@ -38,7 +38,7 @@ export default function Footer() {
                 Soumettre
               </button>
             </div>
-            <div>
+            <div className="flex gap-2">
               <input type="radio" />
               <label htmlFor="cug">
                 J&apos;accepte la politique de confidentialité
@@ -47,7 +47,7 @@ export default function Footer() {
           </form>
         </div>
         {/* RIGHT */}
-        <div className="flex w-full justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full justify-between gap-6 mt-6">
           <ul className="flex flex-col gap-3">
             <li>
               <h1 className="font-bold">La marque du battant</h1>

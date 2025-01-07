@@ -14,7 +14,7 @@ export default function Menu() {
       />
       {open && (
         <div
-          className={`absolute bg-black h-screen top-0 right-[-16px] px-5 text-white transform transition-transform duration-200 ease-in-out ${
+          className={`fixed z-[9999] bg-black h-screen top-0 right-[-16px] px-5 text-white transform transition-transform duration-200 ease-in-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -35,7 +35,7 @@ export default function Menu() {
             <div>
               <Link href="/">Se connecter</Link>
               <span> / </span>
-              <Link href="/">Sauthentifier</Link>
+              <Link href="/">S&apos;enrégistrer</Link>
             </div>
             <Link href="/">FAQ</Link>
             <Link href="/">Nous contacter</Link>

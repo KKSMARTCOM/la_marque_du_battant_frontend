@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="px-6 gap-5 h-[32rem] w-full md:flex">
+    <div className="px-6 gap-5 w-full md:flex">
       <div className="w-full flex justify-center md:w-1/2">
-        <div className="h-[80%] w-[80%] overflow-hidden">
+        <div className="h-full w-full md:w-[80%] overflow-hidden">
           <Image
             src="./citation.jpg"
             width={800}

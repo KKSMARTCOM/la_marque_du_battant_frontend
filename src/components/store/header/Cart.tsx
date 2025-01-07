@@ -1,21 +1,30 @@
 import { Fragment, useState } from "react";
-import { LuShoppingBag } from "react-icons/lu";
+import { LuShoppingCart } from "react-icons/lu";
 import { BsXLg } from "react-icons/bs";
 
 import CartCard from "../cart/CartCard";
 import CartCheckout from "../cart/CartCheckout";
 import CartAccordion from "../cart/CartAccordion";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
 export default function Cart() {
   const [open, setOpen] = useState(false);
   const [cartItem, setCartItem] = useState(true);
+  const router = useRouter();
+  const { cart } = useCart();
   return (
     <Fragment>
-      <LuShoppingBag
-        className="w-6 h-6 cursor-pointer"
-        onClick={() => setOpen(true)}
-      />
-      {open && (
+      <div className="relative">
+        <LuShoppingCart
+          className="w-6 h-6 cursor-pointer"
+          onClick={() => router.push("/cart")}
+        />
+        <span className="absolute -top-4 font-bold right-0 text-red-500">
+          {cart ? cart.length : 0}
+        </span>
+      </div>
+      {/* {open && (
         <div className="absolute h-screen w-full top-0 left-0 flex">
           <div
             className="h-full opacity-[0.3] w-2/3 bg-black cursor-pointer"
@@ -39,15 +48,12 @@ export default function Cart() {
                   <p>Votre panier est vide</p>
                 ) : (
                   <div className="border-l border-gray-300">
-                    {/* TOP */}
-                    {/* Composant */}
                     <div className="px-6">
                       <CartCard />
                     </div>
                     <div className="px-6 mt-10">
                       <CartAccordion />
                     </div>
-                    {/* BOTTOM */}
                     <div className="absolute bottom-0 h-[10rem] w-full flex flex-col gap-6 justify-center items-center bg-white border-t border-black px-4">
                       <CartCheckout />
                     </div>
@@ -57,7 +63,7 @@ export default function Cart() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </Fragment>
   );
 }

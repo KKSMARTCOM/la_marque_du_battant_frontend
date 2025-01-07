@@ -37,4 +37,9 @@ export const navLinks = [
     icon: <UsersRound />,
     label: "Evènements",
   },
+  {
+    url: "/users",
+    icon: <UsersRound />,
+    label: "Utilisateurs",
+  },
 ];

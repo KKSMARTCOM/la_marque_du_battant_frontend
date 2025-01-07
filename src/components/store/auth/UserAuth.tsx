@@ -1,20 +1,41 @@
 "use client";
 import { Fragment, useState } from "react";
 import { LuUser2 } from "react-icons/lu";
-import Form from "@/components/store/auth/Form";
+import CustomerLoginForm from "@/components/store/auth/CustomerLoginForm";
 import Image from "next/image";
+import { ToasterProvider } from "@/lib/ToasterProvider";
+import { getToken } from "@/lib/auth";
+import { useRouter, usePathname } from "next/navigation";
+import CustomerRegisterForm from "./CustomerRegisterForm";
+import ResetPasswordForm from "./ResetPasswordForm";
 
 export default function Footer() {
   const [open, setOpen] = useState(false);
-  const [authMethod, setAuthMethod] = useState(true);
+  const [authMethod, setAuthMethod] = useState("login");
+  const token = getToken();
+  const router = useRouter();
+  const path = usePathname();
+
+  const handleUserIconClick = () => {
+    if (token) {
+      router.push("/account/orders");
+    } else if (path === "/auth/login") {
+      router.replace("/auth/login");
+    } else if (path === "/auth/register") {
+      router.replace("/auth/register");
+    } else {
+      setOpen(true);
+    }
+  };
   return (
     <Fragment>
+      <ToasterProvider />
       <LuUser2
         className="w-6 h-6 cursor-pointer"
-        onClick={() => setOpen(true)}
+        onClick={() => handleUserIconClick()}
       />
       {open && (
-        <div className="absolute h-screen w-full top-0 left-0 flex">
+        <div className="fixed h-screen w-full top-0 left-0 flex z-[9999]">
           <div
             className="h-full opacity-[0.3] w-2/3 bg-black cursor-pointer"
             onClick={() => setOpen(false)}
@@ -27,24 +48,45 @@ export default function Footer() {
             <div className="custom-scrollbar h-full">
               <div className="pt-6 fixed top-0 right-0 left-0 bg-white">
                 <button
-                  className="py-4 border-b-4 border-black w-1/2"
-                  onClick={() => setAuthMethod(true)}
+                  className={`py-4 w-1/2 ${
+                    authMethod === "login" || authMethod === "reset"
+                      ? "border-b-4 border-black"
+                      : ""
+                  }`}
+                  onClick={() => setAuthMethod("login")}
                 >
                   Connexion
                 </button>
                 <button
-                  className="py-4 w-1/2"
-                  onClick={() => setAuthMethod(false)}
+                  className={`py-4 w-1/2 ${
+                    authMethod === "register" ? "border-b-4 border-black" : ""
+                  }`}
+                  onClick={() => setAuthMethod("register")}
                 >
                   Inscription
                 </button>
               </div>
               <div className="mt-[5rem]">
-                <div className="w-full flex justify-center py-[3rem]">
+                <div className="w-full flex justify-center py-[2rem]">
                   <Image src="./battant.png" alt="" width={100} height={100} />
                 </div>
-                {authMethod && <Form method="login" />}
-                {authMethod === false && <Form method="register" />}
+                {authMethod === "login" && (
+                  <CustomerLoginForm
+                    open={open}
+                    setOpen={setOpen}
+                    setAuthMethod={setAuthMethod}
+                  />
+                )}
+                {authMethod === "register" && (
+                  <CustomerRegisterForm open={open} setOpen={setOpen} />
+                )}
+                {authMethod === "reset" && (
+                  <ResetPasswordForm
+                    open={open}
+                    setOpen={setOpen}
+                    setAuthMethod={setAuthMethod}
+                  />
+                )}
               </div>
             </div>
           </div>

@@ -3,6 +3,10 @@ import { Montserrat as FontSans } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/store/layouts/Header";
 import Footer from "@/components/store/layouts/Footer";
+import { ToasterProvider } from "@/lib/ToasterProvider";
+import { AuthProvider } from "@/context/AuthContext";
+import { CartProvider } from "@/context/CartContext";
+import { ProductProvider } from "@/context/ProductContext";
 
 const fontSans = FontSans({ subsets: ["latin"] });
 
@@ -20,9 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`h-full ${fontSans.className}`}>
-        <Header />
-        {children}
-        <Footer />
+        <ProductProvider>
+          <CartProvider>
+            <ToasterProvider />
+            <Header />
+            {children}
+            <Footer />
+          </CartProvider>
+        </ProductProvider>
       </body>
     </html>
   );

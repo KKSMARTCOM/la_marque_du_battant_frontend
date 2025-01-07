@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/store/Button";
+import Button from "@/components/store/CustomBlackButton";
 
 export default function CollectionCard() {
   return (

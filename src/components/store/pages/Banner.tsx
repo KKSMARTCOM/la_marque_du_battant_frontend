@@ -1,8 +1,11 @@
-import Button from "@/components/store/Button";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import CustomWhiteButton from "../CustomWhiteButton";
+import { useState } from "react";
 
 export default function Banner() {
+  const [loading, setLoading] = useState(false);
   return (
     <div className="h-screen bg-slate-500">
       <Image
@@ -17,10 +20,10 @@ export default function Banner() {
         <h1 className="font-extrabold text-lg">Shine in black</h1>
         <div className="flex gap-6 mt-4">
           <Link href="/">
-            <Button title="Hommes" color="white" />
+            <CustomWhiteButton title="Hommes" loading={loading} />
           </Link>
           <Link href="/">
-            <Button title="Femmes" color="white" />
+            <CustomWhiteButton title="Femmes" loading={loading} />
           </Link>
         </div>
       </div>

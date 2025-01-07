@@ -4,7 +4,7 @@
 
 const nextConfig = {
     //basePath: isProd ? '/la_marque_du_battant' : '',
-    output: 'export',
+    output: 'standalone',
     distDir: 'dist',
     images: {
         unoptimized: true

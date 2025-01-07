@@ -1,5 +1,5 @@
 import * as React from "react";
-import Button from "@/components/store/Button";
+import Button from "@/components/store/CustomBlackButton";
 import Image from "next/image";
 import { BsHeart } from "react-icons/bs";
 import ProductDetailAccordion from "@/components/store/products/ProductDetailAccordion";

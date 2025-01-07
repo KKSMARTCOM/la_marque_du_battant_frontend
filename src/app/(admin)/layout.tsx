@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "../globals.css";
-
 import { ToasterProvider } from "@/lib/ToasterProvider";
 import LeftSideBar from "@/components/admin/layout/LeftSideBar";
 import TopBar from "@/components/admin/layout/TopBar";
+import { AuthProvider } from "@/context/AuthContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "LBM - Admin Dashboard",
@@ -21,12 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToasterProvider />
-        <div className="flex max-lg:flex-col bg-gray-50 text-grey-1">
-          <LeftSideBar />
-          <TopBar />
-          <div className="flex-1">{children}</div>
-        </div>
+        <AuthProvider>
+          <ToasterProvider />
+          <div className="flex max-lg:flex-col bg-gray-50 text-grey-1">
+            <LeftSideBar />
+            <TopBar />
+            <div className="flex-1 z-0">{children}</div>
+          </div>
+        </AuthProvider>
       </body>
     </html>
   );

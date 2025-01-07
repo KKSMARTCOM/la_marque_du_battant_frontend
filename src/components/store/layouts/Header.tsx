@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <div
-      className={`h-14 px-4 left-0 top-0 right-0 ${
+      className={`h-16 px-6 left-0 top-0 right-0 container mx-auto overflow-x-hidden ${
         sticky
           ? `bg-white text-black fixed z-[9999] border-b border-gray-200`
           : "absolute bg-transparent text-white"
@@ -49,8 +49,8 @@ export default function Header() {
       <div className="hidden md:flex h-full">
         <div className="flex items-center justify-between w-full">
           {/* LEFT */}
-          <div className="flex items-center gap-5">
-            <Link href="/" className="">
+          <div className="flex items-center gap-8">
+            <Link href="/" className="w-10">
               <Image src="./battant.png" alt="" width={40} height={40} />
             </Link>
             <ul className="flex items-center gap-3 font-semibold">

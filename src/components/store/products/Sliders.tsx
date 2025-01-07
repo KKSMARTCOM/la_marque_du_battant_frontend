@@ -2,13 +2,20 @@
 import ProductCard from "@/components/store/products/ProductCard";
 import NextArrow from "@/components/store/products/NextArrow";
 import PrevArrow from "@/components/store/products/PrevArrow";
-import { products } from "@/data";
 
 import Slider from "react-slick";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { useProduct } from "@/context/ProductContext";
+import CartModal from "../cart/CartModal";
 
-export default function Sliders() {
+export default function Sliders({
+  setOpen,
+  setProduct,
+}: {
+  setOpen: (value: boolean) => void;
+  setProduct: (value: ProductType) => void;
+}) {
   //const [slideToShow, setSlideToShow] = useState(4);
   //const [progress, setProgress] = useState(0);
 
@@ -28,7 +35,9 @@ export default function Sliders() {
     window.addEventListener("resize", () => {
       setSlides();
     });
-  }, []); */
+    }, []); */
+
+  const { products } = useProduct();
 
   const settings = {
     arrows: true,
@@ -72,21 +81,28 @@ export default function Sliders() {
   if (!isClient) {
     return null;
   }
+
   return (
-    <div className="relative">
-      <Slider {...settings}>
-        {products.map((item: any, index: number) => (
-          <Link href={`/products/${item.id}`} key={index}>
-            <ProductCard product={item} />
-          </Link>
-        ))}
-      </Slider>
-      {/* <div className="h-[2px] bg-gray-200 w-[250px] absolute -top-[15px] right-0">
-        <div
-          className="bg-black absolute h-full transition-all"
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div> */}
-    </div>
+    <Fragment>
+      <div className="relative">
+        <Slider {...settings}>
+          {products.map((item: ProductType, index: number) => (
+            <Link href={`/products/${item.id}`} key={index}>
+              <ProductCard
+                product={item}
+                setOpen={setOpen}
+                setProduct={setProduct}
+              />
+            </Link>
+          ))}
+        </Slider>
+        {/* <div className="h-[2px] bg-gray-200 w-[250px] absolute -top-[15px] right-0">
+          <div
+            className="bg-black absolute h-full transition-all"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div> */}
+      </div>
+    </Fragment>
   );
 }
