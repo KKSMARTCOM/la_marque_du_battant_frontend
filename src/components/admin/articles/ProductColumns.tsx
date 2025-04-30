@@ -11,7 +11,7 @@ export const columns: ColumnDef<ProductType>[] = [
     header: "Title",
     cell: ({ row }) => (
       <Link href={`/products/${row.original._id}`} className="hover:text-black">
-        {row.original.title}
+        {row.original.name}
       </Link>
     ),
   },

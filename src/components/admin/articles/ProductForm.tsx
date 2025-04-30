@@ -27,7 +27,7 @@ import MultiText from "@/components/custom ui/MultiText";
 import MultiSelect from "@/components/custom ui/MultiSelect";
 
 const formSchema = z.object({
-  title: z.string().min(2).max(20),
+  name: z.string().min(2).max(20),
   description: z.string().min(2).max(500).trim(),
   media: z.array(z.string()),
   category: z.string(),
@@ -40,13 +40,14 @@ const formSchema = z.object({
 });
 
 interface ProductFormProps {
-  initialData?: ProductType | null; //Must have "?" to make it optional
+  initialData?: ProductType | any; //Must have "?" to make it optional
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+
   const [collections, setCollections] = useState<CollectionType[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -55,11 +56,11 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
       ? {
           ...initialData,
           collections: initialData.collections.map(
-            (collection) => collection._id
+            (collection: CollectionType | any) => collection._id
           ),
         }
       : {
-          title: "",
+          name: "",
           description: "",
           media: [],
           category: "",
@@ -99,7 +100,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
         <form className="space-y-8">
           <FormField
             control={form.control}
-            name="title"
+            name="name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Titre</FormLabel>
