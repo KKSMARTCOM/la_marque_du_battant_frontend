@@ -18,7 +18,7 @@ export const getUserData = (): string | null => {
 };
 
 export const setUserData = (data: any): void => {
-  return localStorage.setItem(USER_DATA, data);
+  return localStorage.setItem(USER_DATA, JSON.stringify(data));
 };
 
 export const removeUserData = (): void => {

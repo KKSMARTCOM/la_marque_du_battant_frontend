@@ -13,13 +13,13 @@ export default function CartCard({
   return (
     <div className="flex flex-col">
       <div className="flex gap-4 pt-2">
-        <div className="w-40 h-[10rem] flex justify-center items-center bg-gray-100">
+        <div className="w-40 h-[10rem] flex justify-center items-center">
           <Image
-            src="./pull.png"
-            alt=""
+            src={cartItem.product.main_image}
+            alt="Product Image"
             width={100}
             height={110}
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
         <div>

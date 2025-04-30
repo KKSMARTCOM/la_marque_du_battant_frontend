@@ -28,7 +28,7 @@ export default function RootLayout({
           <CartProvider>
             <ToasterProvider />
             <Header />
-            {children}
+            <div className="min-h-[600px]">{children}</div>
             <Footer />
           </CartProvider>
         </ProductProvider>

@@ -35,7 +35,7 @@ export default function LeftSideBar() {
   };
 
   return (
-    <div className="h-screen max-w-[20rem] left-0 top-0 bottom-0 sticky flex flex-col p-12 border-r border-gray-200 max-md:hidden">
+    <div className="h-screen left-0 top-0 bottom-0 sticky flex-col p-12 border-r border-gray-200 ">
       <div className="flex flex-col gap-16">
         <div className="text-center ">
           <h1 className="text-2xl font-bold mb-2">
@@ -55,7 +55,9 @@ export default function LeftSideBar() {
           <Link
             href="/account/orders"
             className={
-              pathname === "/account/orders" ? "font-bold text-nowrap" : ""
+              pathname.includes("/account/orders")
+                ? "font-bold text-nowrap"
+                : ""
             }
           >
             <li>Historique des commandes</li>
@@ -69,12 +71,12 @@ export default function LeftSideBar() {
             <li>Mes evènements</li>
           </Link>
           <Link
-            href="/account/address"
+            href="/account/profil"
             className={
-              pathname === "/account/address" ? "font-bold text-nowrap" : ""
+              pathname === "/account/profil" ? "font-bold text-nowrap" : ""
             }
           >
-            <li>Adresses</li>
+            <li>Profil</li>
           </Link>
         </ul>
         <div className="flex justify-center">

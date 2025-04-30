@@ -17,9 +17,10 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const getProducts = async () => {
     try {
-      const res = await fetchClient("/api/products");
+      const res = await fetchClient("/products");
       if (res && res.data) {
         setProducts(res.data);
+        console.log("GET response:", res);
       }
     } catch (error) {
       toast.error("Erreur interne du serveur !");

@@ -41,7 +41,7 @@ export default function ProductCard({
 
   return (
     <div className="w-full">
-      <div className="w-full h-80 bg-gray-100 flex flex-col justify-center items-center cursor-pointer relative group overflow-hidden">
+      <div className="w-full h-80 flex flex-col justify-center items-center cursor-pointer relative group overflow-hidden p-2">
         <div className="absolute top-0 left-0 p-2 flex flex-wrap gap-2">
           {isNewProduct(product.created_at) && (
             <small className="py-1 px-2 bg-white rounded-full cursor-grab">
@@ -57,11 +57,11 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={`.${product.main_image}`}
-          alt=""
+          src={product.main_image ? product.main_image : "defaultImage.png"}
+          alt="Product Image"
           width={150}
           height={150}
-          className="object-cover transition duration-700 ease-in-out transform hover:scale-150 cursor-pointer"
+          className="object-cover w-full h-full transition duration-700 ease-in-out transform hover:scale-150 cursor-pointer"
         />
         <div className="absolute bottom-[15px] hidden group-hover:block">
           <div
@@ -74,7 +74,7 @@ export default function ProductCard({
             >
               {sizes.map((item: string, index: number) => {
                 return (
-                  <li key={index} className="text-nowrap">
+                  <li key={index} className="text-nowrap capitalize">
                     {item}
                   </li>
                 );

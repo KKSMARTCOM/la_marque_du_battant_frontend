@@ -22,7 +22,7 @@ export default function TopBar() {
           </p>
         </div>
         <ul className="mt-6">
-          <Link href="/account/favoris">
+          <Link href="/account">
             <li className="flex justify-between px-4 py-6 border-t border-b border-gray-200">
               <h1 className="text-2xl font-semibold">Favoris</h1>
               <ChevronRight />
@@ -37,16 +37,16 @@ export default function TopBar() {
             </li>
           </Link>
 
-          <Link href="">
+          <Link href="/account/events">
             <li className="flex justify-between px-4 py-6 border-t border-b border-gray-200">
               <h1 className="text-2xl font-semibold">Mes evènements</h1>
               <ChevronRight />
             </li>
           </Link>
 
-          <Link href="">
+          <Link href="/account/profil">
             <li className="flex justify-between px-4 py-6 border-t border-b border-gray-200">
-              <h1 className="text-2xl font-semibold">Adresses</h1>
+              <h1 className="text-2xl font-semibold">Profil</h1>
               <ChevronRight />
             </li>
           </Link>

@@ -1,19 +1,29 @@
+"use client";
 import Link from "next/link";
 import "../../globals.css";
+import { usePathname } from "next/navigation";
 
 export default function ProductsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
     <section>
       <nav className="mt-16">
         <ul className="flex gap-4 px-4 border-b border-gray-200">
-          <Link href="/products" className="px-2 border-b-2 border-black py-4">
+          <Link
+            href="/products?category=tous"
+            className={`px-2 py-4 ${
+              pathname === "/products?category=tous"
+                ? "border-b-2 border-black text-red-500"
+                : ""
+            }`}
+          >
             <li>Tous</li>
           </Link>{" "}
-          <Link href="/products" className="px-2 py-4">
+          {/* <Link href="/products" className="px-2 py-4">
             <li>T-shirts</li>
           </Link>
           <Link href="/products" className="px-2 py-4">
@@ -21,10 +31,10 @@ export default function ProductsLayout({
           </Link>
           <Link href="/products" className="px-2 py-4">
             <li>Culottes</li>
-          </Link>
+          </Link> */}
         </ul>
       </nav>
-      {children}
+      <div>{children}</div>
     </section>
   );
 }

@@ -32,14 +32,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return [];
   });
 
-  /* // Charger le panier depuis le localStorage lors de l'initialisation
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []); */
-
   // Sauvegarder le panier dans le localStorage à chaque modification
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -80,12 +72,27 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   // Modifier la quantité d'un produit
   const updateQuantity = (id: string, newQuantity: number) => {
     setCart((prevCart) =>
-      prevCart.map((cartItem) =>
-        cartItem.product.id === id
-          ? { ...cartItem, quantity: newQuantity }
-          : cartItem
-      )
+      prevCart
+        .map((cartItem) =>
+          cartItem.product.id === id
+            ? { ...cartItem, quantity: newQuantity }
+            : cartItem
+        )
+        .filter((cartItem) => cartItem.quantity > 0)
     );
+
+    /* setCart((prevCart) =>
+      prevCart.reduce((updatedCart, cartItem) => {
+        if (cartItem.product.id === id) {
+          if (newQuantity > 0) {
+            updatedCart.push({ ...cartItem, quantity: newQuantity });
+          }
+        } else {
+          updatedCart.push(cartItem);
+        }
+        return updatedCart;
+      }, [] as typeof prevCart)
+    ); */
   };
 
   // Obtenir le total pour un produit

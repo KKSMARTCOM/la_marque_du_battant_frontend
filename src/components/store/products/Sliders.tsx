@@ -7,8 +7,6 @@ import Slider from "react-slick";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import { useProduct } from "@/context/ProductContext";
-import CartModal from "../cart/CartModal";
-
 export default function Sliders({
   setOpen,
   setProduct,
@@ -45,8 +43,8 @@ export default function Sliders({
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    //nextArrow: <NextArrow />,
+    //prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1280,
@@ -96,12 +94,6 @@ export default function Sliders({
             </Link>
           ))}
         </Slider>
-        {/* <div className="h-[2px] bg-gray-200 w-[250px] absolute -top-[15px] right-0">
-          <div
-            className="bg-black absolute h-full transition-all"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div> */}
       </div>
     </Fragment>
   );

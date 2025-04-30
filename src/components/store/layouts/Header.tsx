@@ -35,15 +35,18 @@ export default function Header() {
       className={`h-16 px-6 left-0 top-0 right-0 container mx-auto overflow-x-hidden ${
         sticky
           ? `bg-white text-black fixed z-[9999] border-b border-gray-200`
-          : "absolute bg-transparent text-white"
+          : "absolute bg-transparent text-white z-[9999]"
       }`}
     >
       {/* MOBILE */}
       <div className="h-full flex justify-between items-center relative md:hidden">
         <Link href="/" className="">
-          <Image src="./battant.png" alt="" width={40} height={40} />
+          <Image src="/battant.png" alt="" width={40} height={40} />
         </Link>
-        <Menu />
+        <div className="flex gap-4 items-center">
+          <Cart />
+          <Menu />
+        </div>
       </div>
       {/* WEB */}
       <div className="hidden md:flex h-full">
@@ -51,36 +54,40 @@ export default function Header() {
           {/* LEFT */}
           <div className="flex items-center gap-8">
             <Link href="/" className="w-10">
-              <Image src="./battant.png" alt="" width={40} height={40} />
+              <Image src="/battant.png" alt="" width={40} height={40} />
             </Link>
             <ul className="flex items-center gap-3 font-semibold">
               <Link
-                href="/products"
-                className="border-b-2 border-transparent py-4 hover:border-black"
+                href="/products?category=Homme"
+                className={`border-b-2 border-transparent py-4 ${
+                  path.includes("/products?category=Homme")
+                    ? "text-red-500"
+                    : ""
+                }`}
               >
                 <li>Homme</li>
               </Link>
               <Link
-                href="/products"
-                className="border-b-2 border-transparent py-4 hover:border-black"
+                href="/products?category=Femme"
+                className="border-b-2 border-transparent py-4"
               >
                 <li>Femme</li>
               </Link>
               <Link
-                href="/products"
-                className="border-b-2 border-transparent py-4 hover:border-black"
+                href="/products?category=Accessoires"
+                className="border-b-2 border-transparent py-4"
               >
                 <li>Accessoires</li>
               </Link>
               <Link
-                href="/products"
-                className="border-b-2 border-transparent py-4 hover:border-black"
+                href="/products?category=tous"
+                className="border-b-2 border-transparent py-4"
               >
                 <li>Collections</li>
               </Link>
               <Link
-                href="/products"
-                className="border-b-2 border-transparent py-4 hover:border-black"
+                href="/events-page"
+                className="border-b-2 border-transparent py-4"
               >
                 <li>Evènements</li>
               </Link>
@@ -88,7 +95,7 @@ export default function Header() {
           </div>
           {/* RIGHT */}
           <div className="flex items-center gap-5">
-            <Search scrolled={sticky} />
+            {/* <Search scrolled={sticky} /> */}
             <BlogButton title="BLOG" scrolled={sticky} />
             <UserAuth />
             <Cart />

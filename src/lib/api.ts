@@ -209,9 +209,59 @@ export const deleteItem = async (
 
 export const getProducts = async () => {
   try {
-    const data = await fetchClient("/api/products");
+    const data = await fetchClient("/products");
     console.log("GET response:", data);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
 };
+
+//Cart
+
+export const saveCart = async (body: any) => {
+  try {
+    const res = await fetchClient("/cart/save", { method: "POST", body: body });
+    console.log("POST response:", res);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+/* const updateData = async () => {
+  const body = { name: "Jane Doe" };
+
+  try {
+    const data = await fetchClient("/api/some-resource/1", {
+      method: "PUT",
+      body,
+    });
+    console.log("PUT response:", data);
+  } catch (error) {
+    console.error("Error updating data:", error);
+  }
+}; */
+
+/* const patchData = async () => {
+  const body = { email: "jane.doe@example.com" };
+
+  try {
+    const data = await fetchClient("/api/some-resource/1", {
+      method: "PATCH",
+      body,
+    });
+    console.log("PATCH response:", data);
+  } catch (error) {
+    console.error("Error patching data:", error);
+  }
+}; */
+
+/* const deleteData = async () => {
+  try {
+    const data = await fetchClient("/api/some-resource/1", {
+      method: "DELETE",
+    });
+    console.log("DELETE response:", data);
+  } catch (error) {
+    console.error("Error deleting data:", error);
+  }
+}; */

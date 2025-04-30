@@ -67,7 +67,7 @@ export default function CustomerLoginForm({
         setToken(res.access_token);
         if (res.data.role == "client") {
           console.log(res.data);
-          setUserData(JSON.stringify(res.data));
+          setUserData(res.data);
           toast.success("Connecté avec succès");
           setOpen(!open);
           router.replace("/account");
