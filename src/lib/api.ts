@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { fetchClient } from "../../utils/fetchClient";
-export const API_URL = "https://marquebattantbackend-production.up.railway.app";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getCsrfToken = async (): Promise<void> => {
   const res = await fetch(`${API_URL}/sanctum/csrf-cookie`, {
@@ -24,7 +24,7 @@ interface AuthResponse {
 //Authentification
 export const register = async (body: {}): Promise<AuthResponse> => {
   await getCsrfToken();
-  const res = await fetch(`${API_URL}/api/auth/register`, {
+  const res = await fetch(`${API_URL}/auth/register`, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     credentials: "include",
@@ -46,7 +46,7 @@ export const login = async (
 ): Promise<AuthResponse> => {
   await getCsrfToken();
 
-  const res = await fetch(`${API_URL}/api/auth/login`, {
+  const res = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     credentials: "include",
@@ -67,7 +67,7 @@ export const logout = async (
   token: string | any
 ): Promise<{ message: string }> => {
   await getCsrfToken();
-  const res = await fetch(`${API_URL}/api/auth/logout`, {
+  const res = await fetch(`${API_URL}/auth/logout`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -85,7 +85,7 @@ export const forgotPassword = async (
   email: string
 ): Promise<{ message: string }> => {
   await getCsrfToken();
-  const res = await fetch(`${API_URL}/api/auth/forgot-password`, {
+  const res = await fetch(`${API_URL}/auth/forgot-password`, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     credentials: "include",
@@ -108,7 +108,7 @@ export const resetPassword = async (
   hash: string | any
 ): Promise<AuthResponse> => {
   await getCsrfToken();
-  const res = await fetch(`${API_URL}/api/auth/reset-password/${hash}`, {
+  const res = await fetch(`${API_URL}/auth/reset-password/${hash}`, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     credentials: "include",
@@ -128,7 +128,7 @@ export const resetPassword = async (
 //Users
 
 export const getUser = async (token: string): Promise<UserType | null> => {
-  const res = await fetch(`${API_URL}/api/user`, {
+  const res = await fetch(`${API_URL}/user`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -144,7 +144,7 @@ export const getUser = async (token: string): Promise<UserType | null> => {
 };
 
 export const getRoles = async (): Promise<{ data: RoleType[] } | null> => {
-  const res = await fetch(`${API_URL}/api/roles`, {
+  const res = await fetch(`${API_URL}/roles`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -161,7 +161,7 @@ export const addUsers = async (
   values: UserType
 ): Promise<{ message: string }> => {
   await getCsrfToken();
-  const res = await fetch(`${API_URL}/api/auth/register`, {
+  const res = await fetch(`${API_URL}/auth/register`, {
     method: "POST",
     credentials: "include",
     body: JSON.stringify(values),
@@ -177,7 +177,7 @@ export const addUsers = async (
 };
 
 export const getUsers = async (): Promise<{ data: UserType[] } | null> => {
-  const res = await fetch(`${API_URL}/api/users`, {
+  const res = await fetch(`${API_URL}/users`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -193,7 +193,7 @@ export const deleteItem = async (
   item: string,
   id: string | any
 ): Promise<void> => {
-  const res = await fetch(`${API_URL}/api/${item}/${id}`, {
+  const res = await fetch(`${API_URL}/${item}/${id}`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
