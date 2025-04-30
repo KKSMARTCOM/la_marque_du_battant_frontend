@@ -16,7 +16,7 @@ type CollectionType = {
 };
 
 type ProductType = {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   main_image: string;
