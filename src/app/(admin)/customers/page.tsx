@@ -1,20 +1,23 @@
 "use client";
+
 import { columns } from "@/components/admin/customers/CustomerColumns";
 import { DataTable } from "@/components/custom ui/DataTable";
 import Loader from "@/components/custom ui/Loader";
 
 import { Separator } from "@/components/ui/separator";
-import { customersData } from "@/lib/data";
 import { useEffect, useState } from "react";
 
 export default function Customers() {
   const [loading, setLoading] = useState(true);
+
   const [customers, setCustomers] = useState<CustomerType[]>([]);
+
   const getCustomers = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    setCustomers(customersData);
+    setCustomers([]);
     setLoading(false);
   };
+
   useEffect(() => {
     getCustomers();
   });

@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
-import { collectionsData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -25,6 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 import ImageUpload from "@/components/custom ui/ImageUpload";
 import MultiText from "@/components/custom ui/MultiText";
 import MultiSelect from "@/components/custom ui/MultiSelect";
+import { fetchClient } from "../../../../utils/fetchClient";
 
 const formSchema = z.object({
   name: z.string().min(2).max(20),
@@ -49,6 +49,23 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
 
   const [collections, setCollections] = useState<CollectionType[]>([]);
+
+  const fetchCollections = async () => {
+    try {
+      setLoading(true);
+      const res = await fetchClient("/collections");
+      setCollections(res.data);
+    } catch (error) {
+      console.error(error);
+      toast.error("Erreur survenue au niveau du serveur ! Veuillez réessayer.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCollections();
+  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -231,7 +248,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
-            {collectionsData.length > 0 && (
+            {collections.length > 0 && (
               <FormField
                 control={form.control}
                 name="collections"
@@ -241,7 +258,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                     <FormControl>
                       <MultiSelect
                         placeholder="Collections"
-                        collections={collectionsData}
+                        collections={collections}
                         value={field.value}
                         onChange={(_id) =>
                           field.onChange([...field.value, _id])

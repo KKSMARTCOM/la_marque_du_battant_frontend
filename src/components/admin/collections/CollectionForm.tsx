@@ -22,7 +22,7 @@ import { Textarea } from "@/components/ui/textarea";
 import ImageUpload from "@/components/custom ui/ImageUpload";
 
 const formSchema = z.object({
-  title: z.string().min(2).max(20),
+  name: z.string().min(2).max(20),
   description: z.string().min(2).max(500).trim(),
   image: z.string(),
 });
@@ -41,7 +41,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
     defaultValues: initialData
       ? initialData
       : {
-          title: "",
+          name: "",
           description: "",
           image: "",
         },
@@ -61,7 +61,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
     try {
       setLoading(true);
       const url = initialData
-        ? `/api/collections/${initialData._id}`
+        ? `/api/collections/${initialData.id}`
         : "/api/collections";
       const res = await fetch(url, {
         method: "POST",
@@ -84,7 +84,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
       {initialData ? (
         <div className="flex items-center justify-between">
           <p className="text-heading2-bold">Edit Collection</p>
-          <Delete id={initialData._id} item="collection" />
+          <Delete id={initialData.id} item="collection" />
         </div>
       ) : (
         <p className="text-heading2-bold">Create Collection</p>
@@ -94,7 +94,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
         <form className="space-y-8">
           <FormField
             control={form.control}
-            name="title"
+            name="name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Title</FormLabel>

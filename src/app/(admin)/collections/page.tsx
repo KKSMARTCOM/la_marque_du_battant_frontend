@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
-import { collectionsData } from "@/lib/data";
 import { DataTable } from "@/components/custom ui/DataTable";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Loader from "@/components/custom ui/Loader";
 import { columns } from "@/components/admin/collections/CollectionColumns";
+import { fetchClient } from "../../../../utils/fetchClient";
+import toast from "react-hot-toast";
 
 export default function Collections() {
   const router = useRouter();
@@ -18,15 +19,23 @@ export default function Collections() {
   const [collections, setCollections] = useState<CollectionType[]>([]);
 
   const getCollections = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setCollections(collectionsData);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const res = await fetchClient("/collections");
+      if (res) {
+        setCollections(res.data);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Erreur survenue au niveau du serveur ! Veuillez réessayer.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     getCollections();
-  });
+  }, []);
 
   return loading ? (
     <Loader />

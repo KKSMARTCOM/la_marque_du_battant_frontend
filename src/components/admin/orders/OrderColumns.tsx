@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export const columns: ColumnDef<OrderColumnType>[] = [
   {
-    accessorKey: "_id",
+    accessorKey: "id",
     header: "Commande",
     cell: ({ row }) => {
       return (
-        <Link href={`/orders/${row.original._id}`} className="hover:text-black">
-          {row.original._id}
+        <Link href={`/orders/${row.original.id}`} className="hover:text-black">
+          {row.original.id}
         </Link>
       );
     },

@@ -8,15 +8,15 @@ type UserType = {
 };
 
 type CollectionType = {
-  _id: string;
-  title: string;
+  id: string;
+  name: string;
   description: string;
   image: string;
   products: ProductType[];
 };
 
 type ProductType = {
-  _id: string;
+  id: string;
   name: string;
   description: string;
   main_image: string;
@@ -35,7 +35,7 @@ type ProductType = {
 };
 
 type OrderColumnType = {
-  _id: string;
+  id: string;
   customer: string;
   products: number;
   totalAmount: number;
@@ -57,7 +57,7 @@ type CustomerType = {
 
 type EventType = {
   id: string;
-  title: string;
+  name: string;
   description: string;
   date: string;
   location: string;

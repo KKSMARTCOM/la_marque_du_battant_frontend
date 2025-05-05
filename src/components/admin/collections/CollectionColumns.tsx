@@ -10,10 +10,10 @@ export const columns: ColumnDef<CollectionType>[] = [
     header: "Titre",
     cell: ({ row }) => (
       <Link
-        href={`/collections/${row.original._id}`}
+        href={`/collections/${row.original.id}`}
         className="hover:text-black"
       >
-        {row.original.title}
+        {row.original.name}
       </Link>
     ),
   },
@@ -24,6 +24,6 @@ export const columns: ColumnDef<CollectionType>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <Delete item="collection" id={row.original._id} />,
+    cell: ({ row }) => <Delete item="collection" id={row.original.id} />,
   },
 ];
