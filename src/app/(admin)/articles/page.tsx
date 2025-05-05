@@ -3,12 +3,13 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
-import { productsData } from "@/lib/data";
 import Loader from "@/components/custom ui/Loader";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/custom ui/DataTable";
 import { columns } from "@/components/admin/articles/ProductColumns";
+import { fetchClient } from "../../../../utils/fetchClient";
+import toast from "react-hot-toast";
 
 export default function Products() {
   const router = useRouter();
@@ -16,16 +17,22 @@ export default function Products() {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<ProductType[]>([]);
 
-  const getCollections = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setProducts(productsData);
-    setLoading(false);
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      const res = await fetchClient("/products");
+      setProducts(res.data);
+    } catch (error) {
+      console.error("Erreur lors du chargement des produits:", error);
+      toast.error("Erreur survenue au niveau du serveur ! Veuillez réessayer.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    getCollections();
-  });
+    fetchProducts();
+  }, []);
 
   return loading ? (
     <Loader />

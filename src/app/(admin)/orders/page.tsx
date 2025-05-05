@@ -3,23 +3,33 @@
 import { columns } from "@/components/admin/orders/OrderColumns";
 import { DataTable } from "@/components/custom ui/DataTable";
 import Loader from "@/components/custom ui/Loader";
-
 import { Separator } from "@/components/ui/separator";
-import { ordersData } from "@/lib/data";
 import { useEffect, useState } from "react";
+import { fetchClient } from "../../../../utils/fetchClient";
+import toast from "react-hot-toast";
 
 export default function Orders() {
   const [loading, setLoading] = useState(true);
-  const [orders, setOrders] = useState<OrderColumnType[]>([]);
-  const getCollections = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    setOrders(ordersData);
-    setLoading(false);
+  const [orders, setOrders] = useState<OrderColumnType[]>([]);
+
+  const getOrders = async () => {
+    try {
+      setLoading(true);
+      const res = await fetchClient("/orders");
+      if (res) {
+        setOrders(res.data);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Erreur survenue au niveau du serveur ! Veuillez réessayer.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    getCollections();
+    getOrders();
   });
 
   return loading ? (
