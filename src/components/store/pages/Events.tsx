@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { fetchClient } from "../../../../utils/fetchClient";
 
-export default function Events() {
+export default function EventStoreLists() {
   const [events, setEvent] = useState([]);
 
   const fetchEvent = async () => {

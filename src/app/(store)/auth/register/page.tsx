@@ -2,7 +2,7 @@
 import { useState } from "react";
 import CustomerRegisterForm from "@/components/store/auth/CustomerRegisterForm";
 
-export default function Register() {
+export default function CustomerRegister() {
   const [open, setOpen] = useState(false);
 
   return (

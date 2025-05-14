@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 
 import { CircleDollarSign, ShoppingBag, UserRound } from "lucide-react";
 
-export default async function Home() {
+export default async function Dashboard() {
   return (
     <AuthLayout>
       <div className="px-8 py-10">

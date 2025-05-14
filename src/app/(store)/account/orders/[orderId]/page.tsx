@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { fetchClient } from "../../../../../../utils/fetchClient";
 import ItemsCard from "@/components/store/products/ItemsCard";
 
-export default function OrderDetails() {
+export default function CustomerOrderDetails() {
   const params = useParams();
   const [order, setOrder] = useState<any>();
   const [loading, setLoading] = useState(true);

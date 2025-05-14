@@ -89,9 +89,9 @@ export default function ProductCard({
               <Link href="">
                 <li>L</li>
               </Link> */}
-              <Link href="">
-                <li>...</li>
-              </Link>
+              <li>
+                <Link href="">...</Link>
+              </li>
             </ul>
             <button
               type="button"

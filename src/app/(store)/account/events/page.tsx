@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { FileClock } from "lucide-react";
 import Link from "next/link";
 
-export default function Events() {
+export default function EventsList() {
   return (
     <AuthLayout>
       <div className="p-10">

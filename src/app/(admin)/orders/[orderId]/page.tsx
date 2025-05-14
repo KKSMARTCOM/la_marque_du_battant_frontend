@@ -2,25 +2,16 @@
 
 import { columns } from "@/components/admin/orderItems/OrderItemsColums";
 import { DataTable } from "@/components/custom ui/DataTable";
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { fetchClient } from "../../../../../utils/fetchClient";
 import toast from "react-hot-toast";
 
-/* export function generateStaticParams() {
-  return ordersData.map((item) => ({
-    orderId: item.id,
-  }));
-} */
-
-export default function OrderDetails() {
+export default function OrderDetails({ params }: any) {
   const [order, setOrder] = useState();
-
-  const params = useParams();
 
   const fetchOrder = async () => {
     try {
-      const res = await fetchClient(`/orders/${params.id}`);
+      const res = await fetchClient(`/orders/${params.orderId}`);
       if (res) {
         setOrder(res.data);
       }

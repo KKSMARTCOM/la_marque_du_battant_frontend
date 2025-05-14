@@ -3,7 +3,6 @@
 import ProductForm from "@/components/admin/articles/ProductForm";
 import Loader from "@/components/custom ui/Loader";
 import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import { fetchClient } from "../../../../../utils/fetchClient";
 import toast from "react-hot-toast";
 
@@ -13,12 +12,12 @@ import toast from "react-hot-toast";
   }));
 } */
 
-export default function ProductDetails() {
-  const params = useParams();
+export default function ArticleDetails({ params }: any) {
   const [product, setProduct] = useState<ProductType | any>({});
+
   const fetchProduct = async () => {
     try {
-      const res = await fetchClient(`/products/${params.id}`);
+      const res = await fetchClient(`/products/${params.articleId}`);
       if (res && res.success == true) {
         setProduct(res.data);
       }

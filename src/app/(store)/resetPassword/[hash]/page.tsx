@@ -28,7 +28,7 @@ const formSchema = z.object({
     .min(6, { message: "Le mot de passe doit contenir au moins 6 caractères" }),
 });
 
-export default function ResetPage() {
+export default function ResetPassword() {
   const { hash } = useParams();
   const router = useRouter();
   const [loading, setLoading] = useState(false);

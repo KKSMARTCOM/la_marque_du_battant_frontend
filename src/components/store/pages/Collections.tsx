@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { fetchClient } from "../../../../utils/fetchClient";
 
-export default function Collections() {
+export default function CollectionLists() {
   const [collections, setCollections] = useState([]);
 
   const fetchCollections = async () => {

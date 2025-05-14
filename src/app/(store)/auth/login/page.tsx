@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CustomerLoginForm from "@/components/store/auth/CustomerLoginForm";
 
-export default function Login() {
+export default function CustomerLogin() {
   const [open, setOpen] = useState(false);
   const [authMethod, setAuthMethod] = useState("");
 

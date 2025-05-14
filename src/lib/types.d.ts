@@ -11,8 +11,14 @@ type CollectionType = {
   id: string;
   name: string;
   description: string;
-  image: string;
+  image?: string;
   products: ProductType[];
+};
+
+type CategoryType = {
+  id: string;
+  name: string;
+  description: string;
 };
 
 type ProductType = {
@@ -20,18 +26,17 @@ type ProductType = {
   name: string;
   description: string;
   main_image: string;
-  additionnal_images: string;
-  category: string;
+  additionnal_images: string[];
+  category_id: string;
   status: string;
   collections: CollectionType[];
-  tags: string;
-  size: string;
-  colors: string;
+  size: string[];
+  color: string;
   price: number;
   quantity: number;
-  expense: number;
-  created_at: string;
-  updated_at: string;
+  expense?: number;
+  created_at: Date;
+  updated_at: Date;
 };
 
 type OrderColumnType = {
@@ -59,9 +64,12 @@ type EventType = {
   id: string;
   name: string;
   description: string;
-  date: string;
-  location: string;
+  address: string;
   image: string;
+  price: number;
+  country: string;
+  startDate: Date;
+  endDate: Date;
 };
 
 type RoleType = {

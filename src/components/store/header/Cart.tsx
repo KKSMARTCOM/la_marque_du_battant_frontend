@@ -1,16 +1,17 @@
-import { Fragment, useState } from "react";
-import { LuShoppingCart } from "react-icons/lu";
-import { BsXLg } from "react-icons/bs";
+"use client";
 
-import CartCard from "../cart/CartCard";
-import CartCheckout from "../cart/CartCheckout";
-import CartAccordion from "../cart/CartAccordion";
+import { Fragment, useEffect, useState } from "react";
+import { LuShoppingCart } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 
-export default function Cart() {
-  const [open, setOpen] = useState(false);
-  const [cartItem, setCartItem] = useState(true);
+export default function CartHead() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const router = useRouter();
   const { cart } = useCart();
   return (
@@ -20,9 +21,11 @@ export default function Cart() {
           className="w-6 h-6 cursor-pointer"
           onClick={() => router.push("/cart")}
         />
-        <span className="absolute -top-4 font-bold right-0 text-red-500">
-          {cart ? cart.length : 0}
-        </span>
+        {mounted && (
+          <div className="absolute -top-4 font-bold right-0 text-red-500">
+            {cart ? cart.length : 0}
+          </div>
+        )}
       </div>
       {/* {open && (
         <div className="absolute h-screen w-full top-0 left-0 flex">

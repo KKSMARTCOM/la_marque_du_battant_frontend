@@ -10,7 +10,7 @@ import { getUsers } from "@/lib/api";
 import toast from "react-hot-toast";
 import Loader from "@/components/custom ui/Loader";
 
-export default function UserList() {
+export default function Users() {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(true);
   const [users, setUsers] = useState<UserType[]>([]);

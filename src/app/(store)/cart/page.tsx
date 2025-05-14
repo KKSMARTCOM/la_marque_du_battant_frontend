@@ -11,7 +11,7 @@ import Link from "next/link";
 import ProductCard from "@/components/store/products/ProductCard";
 import CartModal from "@/components/store/cart/CartModal";
 
-export default function CartPage() {
+export default function Cart() {
   const [accessories, setAccessories] = useState<any>([]);
   const [loading, setLoading] = useState(false);
   const { cart } = useCart();
@@ -27,7 +27,7 @@ export default function CartPage() {
         setAccessories(res.data);
       }
     } catch (error) {
-      console.error("Erreur lors du chargement des produits:", error);
+      console.log("Erreur lors du chargement des produits:", error);
       toast.error("Erreur interne du serveur.");
     }
   };

@@ -1,5 +1,5 @@
 import ProductForm from "@/components/admin/articles/ProductForm";
 
-export default function CreateProduct() {
+export default function CreateArticle() {
   return <ProductForm />;
 }

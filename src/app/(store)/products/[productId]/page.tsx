@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BsHeart } from "react-icons/bs";
 import ProductDetailAccordion from "@/components/store/products/ProductDetailAccordion";
 import ProductDetailCarrousel from "@/components/store/products/ProductDetailCarrousel";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
 import { fetchClient } from "../../../../../utils/fetchClient";
 import toast from "react-hot-toast";
@@ -15,9 +15,8 @@ import { Loader } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { getUserData } from "@/lib/auth";
 
-export default function Page() {
+export default function Product({ params }: any) {
   const router = useRouter();
-  const params = useParams();
   const [product, setProduct] = useState<any>({});
   const [sizes, setSizes] = useState<any>([]);
   const [images, setImages] = useState<any>([]);

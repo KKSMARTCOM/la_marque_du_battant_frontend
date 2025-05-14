@@ -11,7 +11,7 @@ import { columns } from "@/components/admin/articles/ProductColumns";
 import { fetchClient } from "../../../../utils/fetchClient";
 import toast from "react-hot-toast";
 
-export default function Products() {
+export default function Articles() {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);

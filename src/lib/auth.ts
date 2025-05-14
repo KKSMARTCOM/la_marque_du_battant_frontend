@@ -2,25 +2,42 @@ const TOKEN_KEY = "auth_token";
 const USER_DATA = "user_data";
 
 export const getToken = (): string | null => {
-  return localStorage.getItem(TOKEN_KEY);
+  let token: string | null = null;
+  if (typeof window !== "undefined") {
+    token = localStorage.getItem(TOKEN_KEY);
+  }
+  return token;
 };
 
 export const setToken = (token: string): void => {
-  return localStorage.setItem(TOKEN_KEY, token);
+  if (typeof window !== "undefined") {
+    return localStorage.setItem(TOKEN_KEY, token);
+  }
 };
 
 export const removeToken = (): void => {
-  return localStorage.removeItem(TOKEN_KEY);
+  if (typeof window !== "undefined") {
+    return localStorage.removeItem(TOKEN_KEY);
+  }
 };
 
 export const getUserData = (): string | null => {
-  return localStorage.getItem(USER_DATA);
+  let user_data: string | null = null;
+
+  if (typeof window !== "undefined") {
+    return localStorage.getItem(USER_DATA);
+  }
+  return user_data;
 };
 
 export const setUserData = (data: any): void => {
-  return localStorage.setItem(USER_DATA, JSON.stringify(data));
+  if (typeof window !== "undefined") {
+    return localStorage.setItem(USER_DATA, JSON.stringify(data));
+  }
 };
 
 export const removeUserData = (): void => {
-  return localStorage.removeItem(USER_DATA);
+  if (typeof window !== "undefined") {
+    return localStorage.removeItem(USER_DATA);
+  }
 };

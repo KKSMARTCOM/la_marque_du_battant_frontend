@@ -3,7 +3,7 @@ import Sliders from "@/components/store/products/Sliders";
 import { Fragment, useState } from "react";
 import CartModal from "../cart/CartModal";
 
-export default function Products() {
+export default function ProductStoreLists() {
   const [open, setOpen] = useState(false);
   const [product, setProduct] = useState<ProductType | any>({});
   return (
