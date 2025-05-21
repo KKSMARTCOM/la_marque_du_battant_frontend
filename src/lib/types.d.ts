@@ -8,11 +8,11 @@ type UserType = {
 };
 
 type CollectionType = {
-  id: string;
+  id?: string;
   name: string;
   description: string;
   image?: string;
-  products: ProductType[];
+  products?: ProductType[];
 };
 
 type CategoryType = {
@@ -35,8 +35,8 @@ type ProductType = {
   price: number;
   quantity: number;
   expense?: number;
-  created_at: Date;
-  updated_at: Date;
+  created_at: string;
+  updated_at: string;
 };
 
 type OrderColumnType = {

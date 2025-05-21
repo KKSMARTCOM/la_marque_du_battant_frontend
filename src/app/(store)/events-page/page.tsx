@@ -1,32 +1,12 @@
 "use client";
+
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { fetchClient } from "../../../../utils/fetchClient";
-import toast from "react-hot-toast";
 import EventCard from "@/components/store/pages/EventCard";
+import { eventsData } from "@/lib/data";
 
 export default function EventsPage() {
-  const [events, setEvent] = useState([]);
-
-  const fetchEvent = async () => {
-    try {
-      const res = await fetchClient("/events");
-      if (res && res.success === true) {
-        setEvent(res.data);
-        console.log(res.data);
-      }
-    } catch (error) {
-      console.error("Erreur lors du chargement des produits:", error);
-      toast.error("Erreur interne du serveur.");
-    }
-  };
-
-  useEffect(() => {
-    fetchEvent();
-  }, []);
-
   return (
-    <div className="mt-10 overflow-hidden">
+    <div className="overflow-hidden">
       <div className="h-[400px] relative w-full">
         <Image
           src="eventdefault.jpg"
@@ -43,14 +23,11 @@ export default function EventsPage() {
       </div>
       <div className="px-6 py-10 ">
         <h1 className="py-4 font-bold text-heading4-bold">Evenements</h1>
-        {events && events.length > 0 ? (
+        {eventsData && eventsData.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.map((item, index) => {
+            {eventsData.map((item, index) => {
               return <EventCard key={index} event={item} />;
             })}
-
-            {/* <EventCard />
-                  <EventCard /> */}
           </div>
         ) : (
           <div>

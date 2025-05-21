@@ -1,15 +1,11 @@
 import Image from "next/image";
 
-export default function ItemsCard({ orderItem }: { orderItem: any }) {
+export default function ItemsCard() {
   return (
     <div className="w-60 flex flex-col relative overflow-hidden mt-4">
       <div className="w-full h-[18rem] cursor-pointer">
         <Image
-          src={
-            orderItem.product.main_image
-              ? orderItem.product.main_image
-              : "/defaultImage.png"
-          }
+          src={"/defaultImage.png"}
           alt="Product Image"
           width={500}
           height={500}
@@ -17,17 +13,17 @@ export default function ItemsCard({ orderItem }: { orderItem: any }) {
         />
       </div>
       <div className="leading-6 mt-2">
-        <p>{orderItem.product.name}</p>
+        <p></p>
         <small className="text-gray-400">
           {" "}
-          <span>Quantité:</span> {orderItem.quantity}
+          <span>Quantité:</span>
         </small>
       </div>
       <div className="flex justify-between items-center">
         <div className="flex gap-2">
           <small className="text-gray-400">
             {" "}
-            <span>Taille:</span> {orderItem.size}
+            <span>Taille:</span>
           </small>
         </div>
       </div>

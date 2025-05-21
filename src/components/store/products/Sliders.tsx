@@ -71,7 +71,9 @@ export default function Sliders({
       console.log(slideToShow);
     }, */
   };
+
   const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
     setIsClient(true);
   }, []);

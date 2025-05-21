@@ -17,7 +17,7 @@ export default function BlogButton({
         }`}
       ></span>
       <span
-        className={`relative  transition-colors duration-300 ease-in-out  ${
+        className={`relative text-[12px] transition-colors duration-300 ease-in-out  ${
           scrolled
             ? "text-black group-hover:text-white"
             : "text-white group-hover:text-black"

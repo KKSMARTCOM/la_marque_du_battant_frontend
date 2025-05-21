@@ -23,19 +23,27 @@ const CartContext = createContext<CartContextProps | undefined>(undefined);
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [cart, setCart] = useState<CartItem[]>(() => {
+  /* const [cart, setCart] = useState<CartItem[]>(() => {
     // Initialiser le panier depuis localStorage
     if (typeof window !== "undefined") {
       const savedCart = localStorage.getItem("cart");
       return savedCart ? JSON.parse(savedCart) : [];
     }
     return [];
-  });
+  }); */
+
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
 
   // Sauvegarder le panier dans le localStorage à chaque modification
   useEffect(() => {
     if (typeof window !== "undefined") {
-      console.log("Saving cart to localStorage:", cart);
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
@@ -80,19 +88,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         )
         .filter((cartItem) => cartItem.quantity > 0)
     );
-
-    /* setCart((prevCart) =>
-      prevCart.reduce((updatedCart, cartItem) => {
-        if (cartItem.product.id === id) {
-          if (newQuantity > 0) {
-            updatedCart.push({ ...cartItem, quantity: newQuantity });
-          }
-        } else {
-          updatedCart.push(cartItem);
-        }
-        return updatedCart;
-      }, [] as typeof prevCart)
-    ); */
   };
 
   // Obtenir le total pour un produit

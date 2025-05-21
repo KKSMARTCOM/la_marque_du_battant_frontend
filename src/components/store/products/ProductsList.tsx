@@ -1,19 +1,20 @@
 "use client";
 
 import ProductCard from "@/components/store/products/ProductCard";
-import { Fragment, Suspense, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ProductFilter from "@/components/store/products/ProductFilter";
 import Link from "next/link";
 import CartModal from "@/components/store/cart/CartModal";
-import { fetchClient } from "../../../../utils/fetchClient";
 import { useSearchParams } from "next/navigation";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { XMarkIcon, FunnelIcon } from "@heroicons/react/24/outline";
+import { productsData } from "@/lib/data";
+import { categoriesData } from "@/lib/data";
 
 export default function Products() {
   const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductType[] | any>([]);
   const [product, setProduct] = useState<ProductType | {}>({});
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState<any>({});
@@ -23,33 +24,45 @@ export default function Products() {
 
   const fetchProducts = async () => {
     setLoading(true);
-    try {
-      const response = await fetchClient(
-        "/products?category=" +
-          category +
-          "&color=" +
-          filters.color +
-          "&size=" +
-          filters.size +
-          "&sort_price=" +
-          filters.sort_price +
-          "&status=" +
-          filters.status +
-          "&name=" +
-          filters.name
-      );
-      setProducts(response.data);
-    } catch (error) {
-      console.error("Erreur lors du chargement des produits:", error);
-    } finally {
-      setLoading(false);
+
+    const categoryObj = categoriesData.find((c) => c.name === category);
+
+    let filtered = [...productsData];
+
+    if (category && category !== "tous" && categoryObj) {
+      filtered = filtered.filter((p) => p.category_id === categoryObj.id);
     }
+
+    if (filters.name && filters.name.trim() !== "") {
+      filtered = filtered.filter((p) =>
+        p.name.toLowerCase().includes(filters.name.toLowerCase())
+      );
+    }
+
+    if (filters.status) {
+      filtered = filtered.filter((p) => p.status === filters.status);
+    }
+
+    if (filters.color) {
+      filtered = filtered.filter((p) => p.color === filters.color);
+    }
+
+    if (filters.size && filters.size.length > 0) {
+      filtered = filtered.filter((p) => p.size.includes(filters.size));
+    }
+
+    if (filters.sort_price === "asc") {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (filters.sort_price === "desc") {
+      filtered.sort((a, b) => b.price - a.price);
+    }
+
+    setProducts(filtered);
+    setLoading(false);
   };
 
   useEffect(() => {
-    if (category) {
-      fetchProducts();
-    }
+    fetchProducts();
   }, [category, filters]);
 
   return (

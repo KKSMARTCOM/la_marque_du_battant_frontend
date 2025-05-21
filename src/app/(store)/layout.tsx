@@ -4,7 +4,6 @@ import "../globals.css";
 import Header from "@/components/store/layouts/Header";
 import Footer from "@/components/store/layouts/Footer";
 import { ToasterProvider } from "@/lib/ToasterProvider";
-import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { ProductProvider } from "@/context/ProductContext";
 

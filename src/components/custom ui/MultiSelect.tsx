@@ -50,7 +50,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
   return (
     <Command className="overflow-visible bg-white">
       <div className="flex gap-1 flex-wrap border rounded-md">
-        {selected.map((collection) => (
+        {selected.map((collection: any) => (
           <Badge key={collection.id}>
             {collection.name}
             <button
@@ -75,7 +75,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
       <div className="relative mt-2">
         {open && (
           <CommandGroup className="absolute w-full z-30 top-0 overflow-auto border rounded-md shadow-md">
-            {selectables.map((collection) => (
+            {selectables.map((collection: any) => (
               <CommandItem
                 key={collection.id}
                 onMouseDown={(e) => e.preventDefault()}

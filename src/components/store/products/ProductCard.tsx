@@ -24,11 +24,11 @@ export default function ProductCard({
     return daysDifference <= 30; // Check if it's within 30 days
   };
 
-  const [sizes, setSizes] = useState([]);
+  const [sizes, setSizes] = useState<[] | any>([]);
 
   useEffect(() => {
     if (product && product.size) {
-      const size = JSON.parse(product.size);
+      const size = product.size;
       setSizes(size); // Assigner automatiquement la première taille si une seule
     }
   }, [product]);
@@ -57,7 +57,9 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={product.main_image ? product.main_image : "defaultImage.png"}
+          src={`/${
+            product.main_image ? product.main_image : "defaultImage.png"
+          }`}
           alt="Product Image"
           width={150}
           height={150}
@@ -80,15 +82,6 @@ export default function ProductCard({
                 );
               })}
 
-              {/* <Link href="">
-                <li>M</li>
-              </Link>
-              <Link href="">
-                <li>S</li>
-              </Link>
-              <Link href="">
-                <li>L</li>
-              </Link> */}
               <li>
                 <Link href="">...</Link>
               </li>

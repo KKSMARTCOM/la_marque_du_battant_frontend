@@ -26,51 +26,47 @@ export default function CartCheckout() {
 
   const submitPayment = async (event: any) => {
     event.preventDefault();
-    if (!user) {
-      toast.error(
-        "Vous devez d'abord vous connectez avant de procéder à un paiement !"
-      );
-      router.replace("/auth/login");
-    } else if (!user.address || !user.phone) {
-      toast.error(
-        "Vous devez d'abord ajouter votre adresse de livraison et votre numéro de téléphone avant de procéder à un paiement !"
-      );
-      router.replace("/account/profil");
-    } else {
-      /* openKkiapayWidget({
-        amount: 4000,
-        api_key: "xxxxxxxxxxxxxxxxxx",
-        sandbox: true,
-        email: "randomgail@gmail.com",
-        phone: "97000000",
-      }); */
-      setLoading(true);
-      const body = {
-        cart: cart,
-        total: total,
-        transaction_id: 123456,
-        transaction_status: "approved",
-      };
-      try {
-        const res = await fetchClient("/cart/save", {
-          method: "POST",
-          body: body,
-        });
 
-        if (res && res.success == true) {
-          toast.success(res.message);
-          router.replace("/account/orders");
-          clearCart();
-        }
-      } catch (error) {
-        toast.error("Erreur interne du serveur !");
-        console.error("Erreur :", error);
-      } finally {
-        setLoading(false);
-      }
+    setLoading(true);
 
-      console.log(user);
+    if (cart.length === 0) {
+      toast.error("Votre panier est vide.");
+      return;
     }
+
+    // Construire le message
+    const message = `Bonjour j'aimerais effectuer une nouvelle commande !\n\n${cart
+      .map(
+        (item, i) =>
+          `${i + 1}. ${item.product.name} - ${item.sizeSelected} * ${
+            item.quantity
+          } = ${item.product.price * item.quantity} FCFA`
+      )
+      .join(
+        "\n"
+      )}\n\nTotal : ${getTotal()} FCFA\n\nVeuillez traiter cette commande rapidement.`;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    // Numéro WhatsApp destinataire (format international sans +)
+    const phoneNumber = "2290156141438";
+
+    // URL de redirection WhatsApp
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Redirection
+    window.open(whatsappUrl, "_blank");
+
+    clearCart();
+
+    setLoading(false);
+
+    /* const body = {
+      cart: cart,
+      total: total,
+      transaction_id: 123456,
+      transaction_status: "approved",
+    }; */
   };
   return (
     <Fragment>
@@ -108,7 +104,7 @@ export default function CartCheckout() {
           onClick={(event) => submitPayment(event)}
           className="bg-black text-nowrap rounded-full px-1 py-2 mt-4 text-white w-full"
         >
-          {loading ? <Loader /> : `Procéder au paiement ${total} F cfa`}
+          {loading ? <Loader /> : `Confirmer la commande ${total} F cfa`}
         </Button>
       </div>
       {/* <small className="text-gray-400 text-center">

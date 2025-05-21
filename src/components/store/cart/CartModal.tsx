@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
 import { BsXLg } from "react-icons/bs";
-import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -20,7 +19,7 @@ export default function CartModal({
 
   useEffect(() => {
     if (product && product.size) {
-      const sizes = JSON.parse(product.size);
+      const sizes = product.size;
       if (sizes.length === 1) {
         setSizeSelected(sizes[0]); // Assigner automatiquement la première taille si une seule
       }
@@ -61,7 +60,7 @@ export default function CartModal({
                   <div className="px-6 flex justify-center items-center">
                     <div className="w-[14rem] h-[14rem]">
                       <Image
-                        src={product.main_image}
+                        src={`/${product.main_image}`}
                         alt="Product Image"
                         width={100}
                         height={100}
@@ -73,7 +72,7 @@ export default function CartModal({
                     <h1 className="font-semibold mb-4">{product.name}</h1>
                     <p>{product.price} F cfa</p>
                   </div>
-                  {JSON.parse(product.size).length > 1 ? (
+                  {product.size.length > 1 ? (
                     <div className="px-6 mt-8">
                       <p>Taille</p>
 
@@ -81,26 +80,24 @@ export default function CartModal({
                         className="py-2 flex flex-wrap gap-2"
                         onClick={(e) => e.preventDefault()}
                       >
-                        {JSON.parse(product.size).map(
-                          (item: string, index: number) => {
-                            return (
-                              <li
-                                onClick={() => setSizeSelected(item)}
-                                key={index}
-                                className={`w-14 h-14 text-2xl flex justify-center items-center rounded-full border hover:border-black ${
-                                  sizeSelected == item ? "border-black" : ""
-                                } cursor-pointer`}
-                              >
-                                {item}
-                              </li>
-                            );
-                          }
-                        )}
+                        {product.size.map((item: string, index: number) => {
+                          return (
+                            <li
+                              onClick={() => setSizeSelected(item)}
+                              key={index}
+                              className={`w-14 h-14 text-2xl flex justify-center items-center rounded-full border hover:border-black ${
+                                sizeSelected == item ? "border-black" : ""
+                              } cursor-pointer`}
+                            >
+                              {item}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   ) : (
                     <div className="px-6 mt-8 capitalize">
-                      <p>{JSON.parse(product.size)[0]}</p>
+                      <p>{product.size[0]}</p>
                     </div>
                   )}
                   <div className="px-6 mt-10">
@@ -115,7 +112,7 @@ export default function CartModal({
                         toast.success("Produit ajouté au panier.");
                       }}
                       disabled={!sizeSelected}
-                      className="bg-black text-nowrap rounded-full px-1 py-2 text-white w-full"
+                      className="bg-black text-nowrap rounded-full px-1 py-2 mb-6 text-white w-full"
                     >
                       Ajouter au panier
                     </Button>

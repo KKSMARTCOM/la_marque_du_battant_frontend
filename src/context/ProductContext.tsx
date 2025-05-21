@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { fetchClient } from "../../utils/fetchClient";
 import toast from "react-hot-toast";
+import { productsData } from "@/lib/data";
 
 type ProductContextType = {
   products: ProductType[];
@@ -13,24 +14,7 @@ const ProductContext = createContext<ProductContextType | undefined>(undefined);
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [products, setProducts] = useState<ProductType[]>([]);
-
-  const getProducts = async () => {
-    try {
-      const res = await fetchClient("/products");
-      if (res && res.data) {
-        setProducts(res.data);
-        console.log("GET response:", res);
-      }
-    } catch (error) {
-      toast.error("Erreur interne du serveur !");
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const [products, setProducts] = useState<ProductType[]>(productsData);
 
   return (
     <ProductContext.Provider value={{ products }}>

@@ -5,53 +5,36 @@ import CartCard from "@/components/store/cart/CartCard";
 import CartCheckout from "@/components/store/cart/CartCheckout";
 import { useCart } from "@/context/CartContext";
 import { Fragment, useEffect, useState } from "react";
-import { fetchClient } from "../../../../utils/fetchClient";
-import toast from "react-hot-toast";
 import Link from "next/link";
 import ProductCard from "@/components/store/products/ProductCard";
 import CartModal from "@/components/store/cart/CartModal";
+import { productsData } from "@/lib/data";
 
 export default function Cart() {
-  const [accessories, setAccessories] = useState<any>([]);
   const [loading, setLoading] = useState(false);
+  const [accessories, setAccessories] = useState<[] | any>([]);
   const { cart } = useCart();
   const [open, setOpen] = useState(false);
   const [product, setProduct] = useState<any>({});
 
-  const fetchAccessories = async () => {
-    setLoading(true);
-    try {
-      const res = await fetchClient(`/accessories`);
-      if (res && res.success === true) {
-        setLoading(false);
-        setAccessories(res.data);
-      }
-    } catch (error) {
-      console.log("Erreur lors du chargement des produits:", error);
-      toast.error("Erreur interne du serveur.");
-    }
-  };
-
   useEffect(() => {
-    fetchAccessories();
+    const filtered = productsData.filter((p) => p.category_id === "3");
+    setAccessories(filtered);
   }, []);
 
   return (
     <Fragment>
       <div className="my-20">
         <h1 className="text-xl font-bold py-10 px-6">Votre panier</h1>
-        {cart.length === 0 ? (
-          <p className="text-xl">Votre panier est vide</p>
+
+        {cart && cart.length === 0 ? (
+          <p className="text-xl text-center">Votre panier est vide</p>
         ) : (
           <div className=" block md:flex gap-2 px-6">
             <div className="flex-1 grid grid-cols-1 lg:grid-cols-2">
               {cart.map((item, index) => {
                 return <CartCard key={index} cartItem={item} />;
               })}
-              {/* <CartCard />
-              <CartCard />
-              <CartCard />
-              <CartCard /> */}
             </div>
             <div className=" w-full md:w-[26rem] pt-10 md:pt-0 px-0 md:px-4">
               <div>
@@ -64,6 +47,7 @@ export default function Cart() {
 
         <div className="py-10 px-6">
           <h1 className="font-bold mb-6">Ajoutez des accessoires</h1>
+
           {accessories && accessories.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
               {accessories.map((item: any, index: number) => {
