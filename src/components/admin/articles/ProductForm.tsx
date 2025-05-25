@@ -21,7 +21,7 @@ import Loader from "@/components/custom ui/Loader";
 import Delete from "@/components/custom ui/Delete";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import ImageUpload from "@/components/custom ui/ImageUpload";
+//import ImageUpload from "@/components/custom ui/ImageUpload";
 import MultiText from "@/components/custom ui/MultiText";
 import MultiSelect from "@/components/custom ui/MultiSelect";
 import { fetchClient } from "../../../../utils/fetchClient";
@@ -157,7 +157,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
               <FormItem>
                 <FormLabel>Image</FormLabel>
                 <FormControl>
-                  <ImageUpload
+                  {/* <ImageUpload
                     value={field.value}
                     onChange={(url) => field.onChange([...field.value, url])}
                     onRemove={(url) =>
@@ -165,7 +165,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                         ...field.value.filter((image) => image !== url),
                       ])
                     }
-                  />
+                  /> */}
                 </FormControl>
                 <FormMessage className="text-red-1" />
               </FormItem>

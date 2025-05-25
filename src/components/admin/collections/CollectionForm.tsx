@@ -19,7 +19,7 @@ import toast from "react-hot-toast";
 import Delete from "@/components/custom ui/Delete";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import ImageUpload from "@/components/custom ui/ImageUpload";
+//import ImageUpload from "@/components/custom ui/ImageUpload";
 
 const formSchema = z.object({
   name: z.string().min(2).max(20),
@@ -134,11 +134,11 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
               <FormItem>
                 <FormLabel>Image</FormLabel>
                 <FormControl>
-                  <ImageUpload
+                  {/* <ImageUpload
                     value={field.value ? [field.value] : []}
                     onChange={(url) => field.onChange(url)}
                     onRemove={() => field.onChange("")}
-                  />
+                  /> */}
                 </FormControl>
                 <FormMessage />
               </FormItem>
