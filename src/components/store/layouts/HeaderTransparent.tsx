@@ -30,7 +30,7 @@ export default function HeaderTransparent({ sticky }: boolean | any) {
             <Link href="/" className="w-10">
               <Image src="/battant.png" alt="" width={40} height={40} />
             </Link>
-            <ul className="flex items-center gap-3 uppercase text-[12px]">
+            <ul className="flex items-center gap-3 uppercase text-[14px]">
               <Link
                 href="/products?category=Homme"
                 className={`border-b-2 border-transparent py-4`}
