@@ -57,7 +57,7 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={`/${
+          src={`${
             product.main_image ? product.main_image : "defaultImage.png"
           }`}
           alt="Product Image"
