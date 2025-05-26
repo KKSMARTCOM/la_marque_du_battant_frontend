@@ -28,7 +28,7 @@ export default function HeaderTransparent({ sticky }: boolean | any) {
           {/* LEFT */}
           <div className="flex items-center gap-8">
             <Link href="/" className="w-10">
-              <Image src="./battant.png" alt="" width={40} height={40} />
+              <Image src="/battant.png" alt="" width={40} height={40} />
             </Link>
             <ul className="flex items-center gap-3 uppercase text-[14px]">
               <Link
