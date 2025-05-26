@@ -171,7 +171,7 @@ export default function ProductDetail({ params }: any) {
             return (
               <div key={index} className="h-[600px]">
                 <Image
-                  src={`${item}`}
+                  src={`/la_marque_du_battant_frontend${item}`}
                   alt="Second image"
                   height={100}
                   width={100}

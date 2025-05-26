@@ -14,7 +14,12 @@ export default function HeaderTransparent({ sticky }: boolean | any) {
       {/* MOBILE */}
       <div className="h-full flex justify-between items-center relative md:hidden">
         <Link href="/" className="">
-          <Image src="/battant.png" alt="" width={40} height={40} />
+          <Image
+            src="/la_marque_du_battant_frontend/battant.png"
+            alt=""
+            width={40}
+            height={40}
+          />
         </Link>
         <div className="flex gap-4 items-center">
           <Cart />
