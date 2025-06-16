@@ -31,7 +31,7 @@ Suivez ces étapes pour configurer et lancer le projet sur votre machine locale.
 
 1.  **Cloner le dépôt**
     ```bash
-    git clone https://github.com/votre-repo/la-marque-du-battant.git
+    git clone https://github.com/KKSMARTCOM/la_marque_du_battant_frontend.git
     cd la-marque-du-battant
     ```
 
