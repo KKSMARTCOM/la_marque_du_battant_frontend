@@ -57,7 +57,7 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={`/la_marque_du_battant_frontend/${
+          src={`/${
             product.main_image ? product.main_image : "defaultImage.png"
           }`}
           alt="Product Image"

@@ -60,7 +60,7 @@ export default function CartModal({
                   <div className="px-6 flex justify-center items-center">
                     <div className="w-[14rem] h-[14rem]">
                       <Image
-                        src={`/la_marque_du_battant_frontend/${product.main_image}`}
+                        src={`/${product.main_image}`}
                         alt="Product Image"
                         width={100}
                         height={100}
