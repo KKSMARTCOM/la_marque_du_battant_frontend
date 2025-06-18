@@ -1,172 +1,513 @@
 # 🛍️ La Marque du Battant - E-commerce
 
-Une boutique en ligne moderne et complète, construite avec **Next.js 14**, **TypeScript** et **Tailwind CSS**, offrant une expérience utilisateur fluide et une interface d'administration robuste. Ce projet représente une plateforme e-commerce pour "La Marque du Battant", axée sur la performance, la réactivité et la facilité de gestion.
+<div align="center">
 
-## 🚀 Fonctionnalités Clés
+![Next.js](https://img.shields.io/badge/Next.js-14.2.4-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Prisma](https://img.shields.io/badge/Prisma-6.7.0-2D3748?style=for-the-badge&logo=prisma)
 
-- **Boutique en ligne dynamique** : Catalogue de produits riche avec filtres intuitifs et recherche performante.
-- **Système d'authentification sécurisé** : Inscription et connexion des utilisateurs avec gestion des différents rôles (client, administrateur).
-- **Panier d'achat avancé** : Gestion des articles, mise à jour des quantités, et calcul automatique des totaux.
-- **Paiement en ligne intégré** : Solution de paiement (via KkiaPay) adaptée pour le marché africain, facilitant les transactions.
-- **Interface d'administration complète** : Tableau de bord dédié pour la gestion des produits, commandes, utilisateurs, collections et événements.
-- **Gestion des événements** : Création, modification et suivi des événements spéciaux et promotions.
-- **Système de favoris** : Permet aux utilisateurs de sauvegarder leurs produits préférés pour un accès rapide.
-- **Design responsive** : Optimisé pour une expérience utilisateur impeccable sur tous les appareils (mobile, tablette, desktop).
-- **Optimisation SEO** : Métadonnées et structure de page optimisées pour un meilleur référencement naturel.
+**Une boutique en ligne moderne et complète pour "La Marque du Battant"**
 
-## 🛠️ Technologies Utilisées
+[🚀 Démo Live](#) • [📖 Documentation](#) • [🐛 Signaler un Bug](#) • [💡 Demander une Fonctionnalité](#)
 
-- **Framework Frontend** : [Next.js 14](https://nextjs.org/) (avec App Router), [React 18](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
-- **Styling & UI** : [Tailwind CSS](https://tailwindcss.com/) (pour un design system rapide), [Radix UI](https://www.radix-ui.com/) (composants UI sans style), [Lucide React](https://lucide.dev/) (icônes)
-- **Base de Données & ORM** : [SQLite](https://www.sqlite.org/index.html) (pour le développement local), [Prisma ORM](https://www.prisma.io/) (pour une interaction simplifiée avec la base de données)
-- **Paiement** : [KkiaPay](https://docs.kkiapay.me/) (pour les transactions sécurisées en Afrique)
-- **Gestion d'Images** : [Cloudinary](https://cloudinary.com/) (pour l'optimisation et la livraison d'images), [Next.js Image Component](https://nextjs.org/docs/app/building-your-application/optimizing/images) (pour l'optimisation des images locales)
-- **Gestion de Formulaires** : [React Hook Form](https://react-hook-form.com/) (avec validation pour des formulaires performants)
-- **Composants Carousel** : [Embla Carousel](https://www.embla-carousel.com/) et [React Slick](https://react-slick.neostack.com/) (pour les carrousels de produits et bannières)
-- **Notifications** : [React Hot Toast](https://react-hot-toast.com/) (pour des messages de notification élégants et simples)
+</div>
 
-## 📦 Installation et Démarrage
+---
 
-Suivez ces étapes pour configurer et lancer le projet sur votre machine locale.
+## 📋 Table des Matières
 
-1.  **Cloner le dépôt**
-    ```bash
-    git clone https://github.com/KKSMARTCOM/la_marque_du_battant_frontend.git
-    cd la-marque-du-battant
-    ```
+- [🎯 À Propos](#-à-propos)
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [🛠️ Technologies](#️-technologies)
+- [🚀 Installation Rapide](#-installation-rapide)
+- [⚙️ Configuration](#️-configuration)
+- [🗄️ Base de Données](#️-base-de-données)
+- [📁 Architecture](#-architecture)
+- [🔧 Scripts](#-scripts)
+- [🌍 Variables d'Environnement](#-variables-denvironnement)
+- [🎨 Interface Utilisateur](#-interface-utilisateur)
+- [🔒 Sécurité](#-sécurité)
+- [📱 Responsive Design](#-responsive-design)
+- [🚀 Déploiement](#-déploiement)
+- [🤝 Contribution](#-contribution)
+- [📄 Licence](#-licence)
+- [📞 Contact](#-contact)
 
-2.  **Installer les dépendances**
-    ```bash
-    npm install
-    # ou yarn install
-    # ou pnpm install
-    ```
+---
 
-3.  **Configuration de l'environnement**
-    Créez un fichier `.env.local` à la racine du projet en copiant le contenu de `.env.example` et en remplissant les variables nécessaires :
-    ```bash
-    cp .env.example .env.local
-    ```
-    Exemple de `.env.local` (ajustez les valeurs avec vos clés réelles) :
-    ```env
-    # Base de données
-    DATABASE_URL="file:./dev.db"
+## 🎯 À Propos
 
-    # KkiaPay (remplacez par vos clés réelles)
-    NEXT_PUBLIC_KKIAPAY_PUBLIC_KEY="votre_clé_publique_kkiapay"
-    KKIAPAY_PRIVATE_KEY="votre_clé_privée_kkiapay"
+**La Marque du Battant** est une plateforme e-commerce moderne construite avec les technologies les plus récentes. Cette application offre une expérience utilisateur fluide et une interface d'administration robuste pour la gestion complète d'une boutique en ligne.
 
-    # Cloudinary (remplacez par vos informations de compte)
-    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="votre_cloud_name_cloudinary"
-    CLOUDINARY_API_KEY="votre_api_key_cloudinary"
-    CLOUDINARY_API_SECRET="votre_api_secret_cloudinary"
+### 🎯 Objectifs du Projet
 
-    # URL de l'application
-    NEXT_PUBLIC_APP_URL="http://localhost:3000"
-    ```
+- ✅ **Performance optimale** avec Next.js 14 et App Router
+- ✅ **Interface utilisateur moderne** avec Tailwind CSS et Radix UI
+- ✅ **Gestion complète des produits** et des commandes
+- ✅ **Système de paiement sécurisé** adapté au marché africain
+- ✅ **Administration intuitive** pour la gestion du contenu
+- ✅ **Design responsive** pour tous les appareils
 
-4.  **Configuration et migration de la base de données (Prisma)**
-    Initialisez Prisma Client, poussez le schéma vers la base de données et exécutez les seeders si disponibles :
-    ```bash
-    npx prisma generate
-    npx prisma db push
-    npx prisma db seed
-    ```
+---
 
-5.  **Lancer le serveur de développement**
-    ```bash
-    npm run dev
-    ```
+## ✨ Fonctionnalités
 
-    Ouvrez votre navigateur à l'adresse [http://localhost:3000](http://localhost:3000) pour voir l'application en action.
+### 🛒 Boutique en Ligne
+- **Catalogue de produits** avec filtres avancés et recherche
+- **Gestion des collections** et catégories
+- **Système de favoris** pour sauvegarder les produits préférés
+- **Panier d'achat** avec gestion des quantités et tailles
+- **Paiement sécurisé** via KkiaPay (spécialisé Afrique)
 
-## 🗄️ Structure de la Base de Données (Prisma Schema)
+### 👤 Gestion des Utilisateurs
+- **Inscription/Connexion** avec authentification sécurisée
+- **Profils utilisateurs** personnalisables
+- **Historique des commandes** détaillé
+- **Gestion des événements** et inscriptions
 
-Le schéma de base de données est défini dans `prisma/schema.prisma` et inclut les modèles suivants :
+### 🎛️ Interface d'Administration
+- **Tableau de bord** avec statistiques en temps réel
+- **Gestion des produits** (CRUD complet)
+- **Gestion des commandes** et suivi des statuts
+- **Gestion des utilisateurs** et des rôles
+- **Gestion des collections** et événements
+- **Upload d'images** avec Cloudinary
 
--   **`User`** : Gestion des utilisateurs avec différents rôles (`CLIENT`, `USER`, `ADMIN`, `SUPER_ADMIN`).
--   **`Product`** : Détails des articles (nom, description, prix, tailles, couleurs, images, quantité).
--   **`Category`** : Catégories de produits pour une meilleure organisation.
--   **`Collection`** : Regroupement de produits en collections saisonnières ou thématiques.
--   **`Event`** : Informations sur les événements organisés (nom, description, prix, dates).
--   **`CartItem`** : Articles présents dans le panier d'un utilisateur.
--   **`Order`** : Détails des commandes passées (utilisateur, numéro de commande, transaction, prix, statut).
--   **`Favorite`** : Liste des produits qu'un utilisateur a marqués comme favoris.
+### 📊 Fonctionnalités Avancées
+- **Système de rôles** (CLIENT, USER, ADMIN, SUPER_ADMIN)
+- **Gestion des stocks** en temps réel
+- **Notifications** avec React Hot Toast
+- **Optimisation SEO** intégrée
+- **Carrousels interactifs** pour les produits
 
-## 📁 Architecture du Projet
+---
 
-L'application suit une structure modulaire basée sur l'App Router de Next.js, organisée comme suit :
+## 🛠️ Technologies
+
+### 🎨 Frontend
+- **[Next.js 14](https://nextjs.org/)** - Framework React avec App Router
+- **[React 18](https://react.dev/)** - Bibliothèque UI
+- **[TypeScript 5.8.3](https://www.typescriptlang.org/)** - Typage statique
+- **[Tailwind CSS 3.4.1](https://tailwindcss.com/)** - Framework CSS utilitaire
+
+### 🎯 Composants UI
+- **[Radix UI](https://www.radix-ui.com/)** - Composants primitifs accessibles
+- **[Lucide React](https://lucide.dev/)** - Icônes modernes
+- **[React Hook Form](https://react-hook-form.com/)** - Gestion des formulaires
+- **[TanStack Table](https://tanstack.com/table)** - Tables avancées
+
+### 🎠 Carrousels & Animations
+- **[Embla Carousel](https://www.embla-carousel.com/)** - Carrousels performants
+- **[React Slick](https://react-slick.neostack.com/)** - Carrousels supplémentaires
+- **[Tailwind CSS Animate](https://github.com/jamiebuilds/tailwindcss-animate)** - Animations CSS
+
+### 💾 Base de Données & ORM
+- **[SQLite](https://www.sqlite.org/)** - Base de données locale
+- **[Prisma 6.7.0](https://www.prisma.io/)** - ORM moderne
+
+### 💳 Paiement & Services
+- **[KkiaPay](https://docs.kkiapay.me/)** - Solution de paiement africaine
+- **[Cloudinary](https://cloudinary.com/)** - Gestion d'images cloud
+- **[Next Cloudinary](https://next-cloudinary.spacejelly.dev/)** - Intégration Next.js
+
+### 🔧 Outils de Développement
+- **[ESLint](https://eslint.org/)** - Linting du code
+- **[PostCSS](https://postcss.org/)** - Traitement CSS
+- **[ts-node](https://github.com/TypeStrong/ts-node)** - Exécution TypeScript
+
+---
+
+## 🚀 Installation Rapide
+
+### Prérequis
+- **Node.js** 18+ 
+- **npm** ou **yarn** ou **pnpm**
+- **Git**
+
+### Étapes d'Installation
+
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/KKSMARTCOM/la_marque_du_battant_frontend.git
+   cd la_marque_du_battant_frontend
+   ```
+
+2. **Installer les dépendances**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   # ou
+   pnpm install
+   ```
+
+3. **Configurer l'environnement**
+   ```bash
+   # Créer le fichier .env.local
+   cp .env.example .env.local
+   # Éditer .env.local avec vos clés
+   ```
+
+4. **Configurer la base de données**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npx prisma db seed
+   ```
+
+5. **Lancer le serveur de développement**
+   ```bash
+   npm run dev
+   ```
+
+6. **Ouvrir dans le navigateur**
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## ⚙️ Configuration
+
+### Fichier `.env.local`
+
+Créez un fichier `.env.local` à la racine du projet :
+
+```env
+# Base de données
+DATABASE_URL="file:./dev.db"
+
+# KkiaPay (Paiement)
+NEXT_PUBLIC_KKIAPAY_PUBLIC_KEY="votre_clé_publique_kkiapay"
+KKIAPAY_PRIVATE_KEY="votre_clé_privée_kkiapay"
+
+# Cloudinary (Images)
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="votre_cloud_name"
+CLOUDINARY_API_KEY="votre_api_key"
+CLOUDINARY_API_SECRET="votre_api_secret"
+
+# Application
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+### 🔑 Obtenir les Clés API
+
+#### KkiaPay
+1. Créez un compte sur [KkiaPay](https://kkiapay.me/)
+2. Accédez à votre dashboard
+3. Récupérez vos clés publique et privée
+
+#### Cloudinary
+1. Créez un compte sur [Cloudinary](https://cloudinary.com/)
+2. Accédez à votre dashboard
+3. Récupérez votre Cloud Name, API Key et API Secret
+
+---
+
+## 🗄️ Base de Données
+
+### Modèles Prisma
+
+```prisma
+// Utilisateurs avec rôles
+User {
+  id, email, password, role (CLIENT|USER|ADMIN|SUPER_ADMIN)
+  lastname, firstname, avatar, birthday, phone, address, city
+}
+
+// Produits avec gestion des stocks
+Product {
+  id, name, description, price, size (JSON), color
+  quantity, main_image, additional_images (JSON), status
+  categoryId, collectionId
+}
+
+// Collections saisonnières
+Collection {
+  id, name, image, description, start_date, end_date
+}
+
+// Catégories de produits
+Category {
+  id, name, description
+}
+
+// Événements
+Event {
+  id, name, description, image, price, country, address
+  start_date, end_date
+}
+
+// Panier d'achat
+CartItem {
+  id, orderNo, quantity, size, color, userId, productId
+}
+
+// Commandes
+Order {
+  id, userId, orderNo, transactionId, price, status
+}
+
+// Favoris
+Favorite {
+  id, userId, productId, sizeSelected
+}
+```
+
+### Commandes Prisma Utiles
+
+```bash
+# Générer le client Prisma
+npx prisma generate
+
+# Pousser le schéma vers la DB
+npx prisma db push
+
+# Exécuter les seeders
+npx prisma db seed
+
+# Ouvrir Prisma Studio
+npx prisma studio
+
+# Réinitialiser la base de données
+npx prisma db push --force-reset
+```
+
+---
+
+## 📁 Architecture
 
 ```
 src/
-├── app/                    # Points d'entrée principaux de l'application (App Router Next.js 14)
-│   ├── (store)/           # Pages publiques de la boutique (accueil, produits, collections, etc.)
-│   ├── (auth)/            # Pages d'authentification (connexion, inscription, etc.)
-│   └── (admin)/           # Interface d'administration (tableau de bord, gestion des données)
-├── components/            # Composants React réutilisables
-│   ├── store/            # Composants spécifiques à la boutique
-│   ├── admin/            # Composants spécifiques à l'administration
-│   ├── auth/             # Composants liés à l'authentification
-│   └── ui/               # Composants d'interface utilisateur génériques (shadcn/ui)
-├── lib/                  # Utilitaires, fonctions d'aide et configurations globales (ex: `config.ts`, `ToasterProvider.tsx`)
-├── hooks/                # Hooks React personnalisés pour la logique réutilisable
-├── context/              # Contextes React pour la gestion de l'état global (ex: `CartContext.tsx`, `ProductContext.tsx`, `AuthContext.tsx`)
-└── generated/            # Code généré automatiquement (principalement par Prisma Client)
+├── app/                          # App Router Next.js 14
+│   ├── (store)/                 # Pages publiques
+│   │   ├── page.tsx            # Accueil
+│   │   ├── products/           # Catalogue produits
+│   │   ├── cart/               # Panier
+│   │   ├── account/            # Espace client
+│   │   └── events-page/        # Événements
+│   ├── (auth)/                 # Authentification
+│   │   ├── login/              # Connexion
+│   │   └── register/           # Inscription
+│   └── (admin)/                # Administration
+│       ├── dashboard/          # Tableau de bord
+│       ├── products/           # Gestion produits
+│       ├── orders/             # Gestion commandes
+│       ├── users/              # Gestion utilisateurs
+│       └── events/             # Gestion événements
+├── components/                  # Composants React
+│   ├── ui/                     # Composants UI (shadcn/ui)
+│   ├── store/                  # Composants boutique
+│   ├── admin/                  # Composants admin
+│   └── auth/                   # Composants auth
+├── lib/                        # Utilitaires et config
+├── hooks/                      # Hooks personnalisés
+├── context/                    # Contextes React
+└── generated/                  # Code généré (Prisma)
 ```
 
-## 🔧 Scripts Disponibles
+---
 
-Liste des commandes utiles pour le développement et la gestion du projet :
+## 🔧 Scripts
 
--   `npm run dev` : Lance le serveur de développement de Next.js en mode hot-reloading.
--   `npm run build` : Crée une version optimisée pour la production de l'application.
--   `npm run start` : Démarre le serveur de production (après avoir exécuté `npm run build`).
--   `npm run lint` : Exécute ESLint pour analyser le code et identifier les problèmes potentiels.
--   `npx prisma studio` : Ouvre une interface graphique pour visualiser et gérer les données de votre base de données locale (nécessite que la base de données soit configurée).
+| Commande | Description |
+|----------|-------------|
+| `npm run dev` | Serveur de développement avec hot-reload |
+| `npm run build` | Build de production optimisé |
+| `npm run start` | Serveur de production |
+| `npm run lint` | Vérification du code avec ESLint |
+| `npx prisma studio` | Interface graphique pour la base de données |
+| `npx prisma generate` | Générer le client Prisma |
+| `npx prisma db push` | Synchroniser le schéma avec la DB |
+| `npx prisma db seed` | Exécuter les données de test |
+
+---
 
 ## 🌍 Variables d'Environnement
 
-Le fichier `.env.local` contient des variables d'environnement cruciales. Assurez-vous de les configurer correctement pour le bon fonctionnement de l'application :
+| Variable | Description | Requis |
+|----------|-------------|--------|
+| `DATABASE_URL` | URL de connexion à la base de données | ✅ |
+| `NEXT_PUBLIC_KKIAPAY_PUBLIC_KEY` | Clé publique KkiaPay (frontend) | ✅ |
+| `KKIAPAY_PRIVATE_KEY` | Clé privée KkiaPay (backend) | ✅ |
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Nom du cloud Cloudinary | ✅ |
+| `CLOUDINARY_API_KEY` | Clé API Cloudinary | ✅ |
+| `CLOUDINARY_API_SECRET` | Secret API Cloudinary | ✅ |
+| `NEXT_PUBLIC_APP_URL` | URL de base de l'application | ✅ |
 
--   `DATABASE_URL` : URL de connexion à votre base de données Prisma (pour SQLite, c'est un chemin de fichier).
--   `NEXT_PUBLIC_KKIAPAY_PUBLIC_KEY` : Clé publique de l'API KkiaPay pour les transactions (frontend).
--   `KKIAPAY_PRIVATE_KEY` : Clé privée de l'API KkiaPay (utilisée côté serveur pour des opérations sécurisées).
--   `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` : Nom de votre cloud Cloudinary pour l'hébergement d'images.
--   `CLOUDINARY_API_KEY` et `CLOUDINARY_API_SECRET` : Clés d'API pour l'accès sécurisé à Cloudinary.
--   `NEXT_PUBLIC_APP_URL` : URL de base de votre application (utile pour les redirections et les liens absolus).
+---
 
-## 🎯 Améliorations Futures / Optimisations Possibles
+## 🎨 Interface Utilisateur
 
-Voici quelques pistes pour améliorer et étendre ce projet :
+### 🎯 Design System
+- **Tailwind CSS** pour un design cohérent
+- **Radix UI** pour l'accessibilité
+- **Lucide React** pour les icônes
+- **Animations fluides** avec Tailwind CSS Animate
 
--   **Récupération de Données Réelles** : Remplacer les données mockées (`productsData`, `collectionsData`, clients, etc.) par des appels API réels vers le backend pour dynamiser toutes les sections.
--   **Gestion des Erreurs et Logging** : Mettre en place un système de gestion des erreurs plus robuste (ex: Sentry) et un logging détaillé pour le débogage en production.
--   **Tests Automatisés** : Ajouter des tests unitaires (ex: Jest, React Testing Library) et des tests d'intégration pour garantir la fiabilité et la stabilité du code.
--   **CI/CD (Intégration Continue/Déploiement Continu)** : Configurer des pipelines CI/CD (ex: GitHub Actions, Vercel) pour automatiser les tests et les déploiements.
--   **Optimisation des Performances** : Continuer l'optimisation des images, envisager le lazy loading pour les composants non critiques, et implémenter des stratégies de cache côté serveur.
--   **Amélioration de l'Expérience Utilisateur (UX)** : Affiner les animations, les transitions, et le feedback utilisateur pour une navigation encore plus agréable.
--   **Fonctionnalités Admin Approfondies** : Développer davantage les pages d'administration (ex: gestion des stocks, statistiques avancées, gestion des codes promo).
--   **Internationalisation (i18n)** : Implémenter la prise en charge de plusieurs langues si l'audience cible est globale.
--   **Webhooks pour KkiaPay** : Mettre en place des webhooks pour une confirmation de paiement asynchrone et plus fiable.
+### 📱 Composants Principaux
+- **Header** avec navigation et recherche
+- **Product Cards** avec images et informations
+- **Cart Modal** pour le panier d'achat
+- **Admin Dashboard** avec tableaux de données
+- **Forms** avec validation React Hook Form
+
+### 🎨 Thème et Couleurs
+- Design moderne et épuré
+- Palette de couleurs cohérente
+- Typographie optimisée pour la lisibilité
+- Espacement et hiérarchie visuelle claire
+
+---
+
+## 🔒 Sécurité
+
+### 🔐 Authentification
+- **Bcrypt** pour le hachage des mots de passe
+- **JWT** pour les tokens d'authentification
+- **Rôles utilisateurs** avec permissions granulaires
+- **Protection des routes** sensibles
+
+### 🛡️ Sécurité des Données
+- **Validation** côté client et serveur
+- **Sanitisation** des entrées utilisateur
+- **Protection CSRF** intégrée
+- **Headers de sécurité** configurés
+
+### 💳 Sécurité des Paiements
+- **KkiaPay** certifié et sécurisé
+- **Validation** des transactions
+- **Chiffrement** des données sensibles
+- **Logs** de sécurité détaillés
+
+---
+
+## 📱 Responsive Design
+
+### 📱 Mobile First
+- Design optimisé pour mobile
+- Navigation adaptative
+- Images responsives
+- Touch-friendly interactions
+
+### 💻 Multi-Écrans
+- **Mobile** : 320px - 768px
+- **Tablet** : 768px - 1024px
+- **Desktop** : 1024px+
+
+### 🎯 Breakpoints Tailwind
+```css
+sm: 640px   /* Small devices */
+md: 768px   /* Medium devices */
+lg: 1024px  /* Large devices */
+xl: 1280px  /* Extra large devices */
+2xl: 1536px /* 2X large devices */
+```
+
+---
+
+## 🚀 Déploiement
+
+### 📦 Build de Production
+```bash
+npm run build
+npm run start
+```
+
+### 🌐 Plateformes Recommandées
+- **[Vercel](https://vercel.com/)** - Optimisé pour Next.js
+- **[Netlify](https://netlify.com/)** - Déploiement simple
+- **[Railway](https://railway.app/)** - Backend et base de données
+
+### 🔧 Variables d'Environnement en Production
+- Configurez toutes les variables d'environnement
+- Utilisez une base de données de production (PostgreSQL/MySQL)
+- Activez HTTPS et les domaines personnalisés
+
+---
 
 ## 🤝 Contribution
 
-Les contributions sont les bienvenues ! Pour contribuer au projet :
+Nous accueillons toutes les contributions ! Voici comment participer :
 
-1.  Fork le dépôt.
-2.  Créez une branche pour votre fonctionnalité (`git checkout -b feature/nom-de-la-fonctionnalite`).
-3.  Commitez vos modifications (`git commit -m 'feat: ajouter ma nouvelle fonctionnalité'`).
-4.  Poussez vers la branche (`git push origin feature/nom-de-la-fonctionnalite`).
-5.  Ouvrez une Pull Request détaillée.
+### 📋 Processus de Contribution
+
+1. **Fork** le projet
+2. **Clone** votre fork localement
+3. **Créez** une branche pour votre fonctionnalité
+   ```bash
+   git checkout -b feature/ma-nouvelle-fonctionnalite
+   ```
+4. **Commitez** vos changements
+   ```bash
+   git commit -m 'feat: ajouter ma nouvelle fonctionnalité'
+   ```
+5. **Poussez** vers votre fork
+   ```bash
+   git push origin feature/ma-nouvelle-fonctionnalite
+   ```
+6. **Ouvrez** une Pull Request
+
+### 📝 Standards de Code
+- **TypeScript** strict
+- **ESLint** pour la qualité du code
+- **Prettier** pour le formatage
+- **Conventional Commits** pour les messages
+
+### 🐛 Signaler un Bug
+- Utilisez les [Issues GitHub](https://github.com/KKSMARTCOM/la_marque_du_battant_frontend/issues)
+- Décrivez clairement le problème
+- Incluez les étapes de reproduction
+- Ajoutez des captures d'écran si nécessaire
+
+---
 
 ## 📄 Licence
 
-Ce projet est distribué sous la licence MIT. Voir le fichier `LICENSE` (si existant) ou la [licence MIT](https://opensource.org/licenses/MIT) pour plus de détails.
+Ce projet est distribué sous la licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+```
+MIT License
+
+Copyright (c) 2024 La Marque du Battant
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
+
+---
 
 ## 📞 Contact
 
-Pour toute question ou demande de renseignements, vous pouvez me contacter :
+### 🌐 Informations de Contact
+- **Site Web** : [https://lamarquedubattant.com](https://lamarquedubattant.com)
+- **Email** : [contact@lamarquedubattant.com](mailto:contact@lamarquedubattant.com)
+- **Téléphone** : +225 0123456789
 
--   **Email** : [contact@lamarquedubattant.com](mailto:contact@lamarquedubattant.com)
--   **Téléphone** : +225 0123456789
--   **Site web** : [https://lamarquedubattant.com](https://lamarquedubattant.com)
+### 📍 Réseaux Sociaux
+- **Facebook** : [La Marque du Battant](https://facebook.com/lamarquedubattant)
+- **Instagram** : [@lamarquedubattant](https://instagram.com/lamarquedubattant)
+- **Twitter** : [@lamarquedubattant](https://twitter.com/lamarquedubattant)
+
+### 💼 Support Commercial
+- **Heures d'ouverture** : Lundi - Vendredi, 9h - 18h (GMT)
+- **Support technique** : [support@lamarquedubattant.com](mailto:support@lamarquedubattant.com)
+
+---
+
+<div align="center">
+
+**⭐ Si ce projet vous plaît, n'oubliez pas de lui donner une étoile !**
+
+[⬆️ Retour en haut](#-la-marque-du-battant---e-commerce)
+
+</div> 

@@ -14,7 +14,7 @@ export default function ProductStoreLists() {
           <header className="mb-4">
             <p className="text-gray-500 text-sm mb-2">Achetez les catégories</p>
             <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center mb-4">
-              <h2 className="font-bold text-2xl sm:text-3xl">Articles en vedette</h2>
+              <h2 className="font-bold text-4xl sm:text-5xl text-black mb-2">Articles en vedette</h2>
               <div className="h-2 w-2 bg-gray-400 rounded-full mt-2 sm:mt-0 sm:ml-4"></div>
             </div>
           </header>

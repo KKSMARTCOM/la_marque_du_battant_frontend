@@ -11,7 +11,7 @@ export default function EventStoreLists() {
   return (
     <div className="px-6 py-10">
       <small className="text-gray-400">Participez</small>
-      <h1 className="font-bold text-xl py-[20px]">A nos évènements</h1>
+      <h1 className="font-bold text-3xl text-black py-[20px] mb-4">A nos évènements</h1>
       {events && events.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((item, index) => {

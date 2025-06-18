@@ -9,7 +9,7 @@ export default function CollectionLists() {
   return (
     <div className="px-6 py-10">
       <small className="text-gray-400">Découvrez</small>
-      <h1 className="font-bold text-xl py-[20px]">Nos collections</h1>
+      <h1 className="font-bold text-3xl text-black py-[20px] mb-4">Nos collections</h1>
       {collections && collections.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {collections.map((item, index) => {

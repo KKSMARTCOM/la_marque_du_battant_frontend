@@ -15,16 +15,16 @@ export default function About() {
         </div>
       </div>
       <div className="pt-10 text-justify md:w-1/2 md:pt-0 flex flex-col gap-6">
-        <h1 className="font-bold text-xl">A propos</h1>
+        <h1 className="font-bold text-3xl text-black mb-4">A propos</h1>
         <div>
           <p>
-            La Marque des Battants est bien plus qu’une simple boutique en ligne
-            : c’est une ode à la persévérance et à l’audace.{" "}
+            La Marque des Battants est bien plus qu'une simple boutique en ligne
+            : c'est une ode à la persévérance et à l'audace.{" "}
           </p>
           <br />
           <p>
             Fondée avec la conviction que chaque bataille menée avec passion
-            mérite d’être célébrée, notre marque incarne l’esprit des battants,
+            mérite d'être célébrée, notre marque incarne l'esprit des battants,
             ceux qui se relèvent face aux défis. Inspirée par les histoires de
             courage et de dépassement, notre collection reflète la force
             intérieure de chacun à travers des créations uniques et
@@ -40,7 +40,7 @@ export default function About() {
           </p>
           <br />
           <span className="font-semibold text-sm">
-            La Marque des Battants : parce que chaque battant mérite d’être
+            La Marque des Battants : parce que chaque battant mérite d'être
             honoré.
           </span>
         </div>
