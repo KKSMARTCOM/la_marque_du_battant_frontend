@@ -95,4 +95,8 @@ export default function EventDetailsPage({ params }: EventDetailsPageProps) {
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  return eventsData.map(event => ({ eventId: event.id }));
 } 

@@ -2,12 +2,13 @@
 import React from "react";
 import { eventsData } from "@/lib/data";
 import EventCard from "@/components/store/pages/EventCard";
+import Image from "next/image";
 
 export default function EventsPageWithDrawer() {
   return (
     <div className="overflow-hidden">
       <div className="h-[400px] relative w-full">
-        <img
+        <Image
           src="/eventdefault.jpg"
           alt="Event Image"
           className="w-full h-full object-cover"
