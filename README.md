@@ -34,6 +34,7 @@
 - [🤝 Contribution](#-contribution)
 - [📄 Licence](#-licence)
 - [📞 Contact](#-contact)
+- [📅 Gestion des Événements](#-gestion-des-événements)
 
 ---
 
@@ -81,6 +82,31 @@
 - **Notifications** avec React Hot Toast
 - **Optimisation SEO** intégrée
 - **Carrousels interactifs** pour les produits
+
+## 📅 Gestion des Événements
+
+### Pages Événements
+
+- **Liste des événements** : accessible via `/events-page`, cette page affiche tous les événements à venir sous forme de cartes responsives.
+- **Détail d'un événement** : accessible via `/events-page/[eventId]`, cette page affiche toutes les informations détaillées d'un événement (nom, image, description, organisateur, lieu, date, prix, etc.) de façon dynamique selon l'id dans l'URL.
+
+### Fonctionnement
+
+- Les données des événements sont actuellement mockées dans le fichier `src/lib/data.ts` (tableau `eventsData`).
+- Chaque carte événement redirige vers la page de détails correspondante au clic (plus de preview/drawer).
+- La page de détails est 100% responsive et reprend fidèlement le design fourni.
+- Le bouton "Je participe" est animé et occupe toute la largeur sur mobile et desktop.
+- Si l'id de l'événement n'existe pas, une page 404 s'affiche.
+
+### Suppression du Preview
+
+- L'ancien système de prévisualisation rapide (drawer/wrapper au clic sur l'icône œil) a été supprimé pour simplifier l'expérience utilisateur.
+- Désormais, toute l'interaction se fait via la navigation classique (clic sur la carte = accès à la page de détails).
+
+### Personnalisation
+
+- Pour modifier ou enrichir les événements, éditez simplement le tableau `eventsData` dans `src/lib/data.ts`.
+- Pour connecter à une vraie base de données, adaptez la récupération des données dans la page dynamique.
 
 ---
 

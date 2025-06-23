@@ -509,7 +509,7 @@ const customersData: CustomerType[] = [
 const eventsData: EventType[] = [
   {
     id: "1",
-    name: "Festival de musique d’Abidjan",
+    name: "Festival de musique d'Abidjan",
     description:
       "Un grand festival de musique avec des artistes internationaux et locaux.",
     address: "Palais des Congrès, Abidjan, Côte d'Ivoire",
@@ -518,18 +518,24 @@ const eventsData: EventType[] = [
     country: "Côte d'Ivoire",
     startDate: new Date(),
     endDate: new Date(),
+    organizer: "Abidjan Events",
+    longDescription: "Venez vivre une expérience musicale inoubliable avec des artistes venus du monde entier. Profitez de concerts, d'ateliers et d'animations pour tous les âges dans une ambiance festive et chaleureuse.",
+    buyLink: "https://billetterie.abidjanevents.com/festival-2024",
   },
   {
     id: "2",
     name: "Marché de Noël à Dakar",
     description:
       "Le marché de Noël annuel de Dakar avec des artisans locaux et des produits traditionnels.",
-    address: "Place de l’Indépendance, Dakar, Sénégal",
+    address: "Place de l'Indépendance, Dakar, Sénégal",
     image: "fakeimg/event2.jpg",
     price: 5.0,
     country: "Sénégal",
     startDate: new Date(),
     endDate: new Date(),
+    organizer: "Dakar Fêtes",
+    longDescription: "Découvrez les saveurs et l'artisanat du Sénégal dans une ambiance féérique. Animations pour enfants, stands gourmands et idées cadeaux vous attendent au cœur de Dakar.",
+    buyLink: "https://billetterie.dakarfetes.com/noel-2024",
   },
   {
     id: "3",
@@ -542,18 +548,24 @@ const eventsData: EventType[] = [
     country: "Togo",
     startDate: new Date(),
     endDate: new Date(),
+    organizer: "Lomé Cinéma",
+    longDescription: "Participez à la célébration du cinéma africain avec des projections, des rencontres avec les réalisateurs et des ateliers pour petits et grands.",
+    buyLink: "https://billetterie.lomecinema.com/festival-2024",
   },
   {
     id: "4",
-    name: "Salon de l’Entrepreneuriat de Ouagadougou",
+    name: "Salon de l'Entrepreneuriat de Ouagadougou",
     description:
-      "Un salon dédié aux jeunes entrepreneurs et aux opportunités d’affaires.",
+      "Un salon dédié aux jeunes entrepreneurs et aux opportunités d'affaires.",
     address: "Hotel Azalai, Ouagadougou, Burkina Faso",
     image: "fakeimg/event4.jpg",
     price: 20.0,
     country: "Burkina Faso",
     startDate: new Date(),
     endDate: new Date(),
+    organizer: "Ouaga Business",
+    longDescription: "Rencontrez des experts, assistez à des conférences et développez votre réseau lors de ce salon incontournable pour les entrepreneurs africains.",
+    buyLink: "https://billetterie.ouagabusiness.com/salon-2024",
   },
   {
     id: "5",
@@ -566,6 +578,9 @@ const eventsData: EventType[] = [
     country: "Gambie",
     startDate: new Date(),
     endDate: new Date(),
+    organizer: "Banjul Culture",
+    longDescription: "Défilez dans les rues de Banjul et découvrez la richesse culturelle de la Gambie à travers des danses, des costumes et des musiques traditionnelles.",
+    buyLink: "https://billetterie.banjulculture.com/carnaval-2024",
   },
   {
     id: "6",
@@ -578,6 +593,9 @@ const eventsData: EventType[] = [
     country: "Guinée",
     startDate: new Date(),
     endDate: new Date(),
+    organizer: "Conakry Danse",
+    longDescription: "Assistez à des spectacles de danse exceptionnels et participez à des ateliers animés par des professionnels venus des quatre coins du globe.",
+    buyLink: "https://billetterie.conakrydanse.com/festival-2024",
   },
 ];
 
