@@ -65,7 +65,7 @@ export default function EventDetailsPage({ params }: EventDetailsPageProps) {
             </div>*/}
             {/* Section détails de l'événement */}
             <div>
-            <h2 className="text-[#0d111b] text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5">Détails de l'événement</h2>
+            <h2 className="text-[#0d111b] text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5">Détails de l&apos;événement</h2>
             <p className="text-[#0d111b] text-sm sm:text-base font-normal leading-normal pb-3 pt-1 px-2 sm:px-4">
               {event.longDescription}
             </p>
