@@ -2,6 +2,7 @@
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { BsDash, BsPlus, BsTrash } from "react-icons/bs";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function CartCard({
   cartItem,
@@ -15,7 +16,7 @@ export default function CartCard({
       <div className="flex gap-4 pt-2">
         <div className="w-40 h-[10rem] flex justify-center items-center">
           <Image
-            src={cartItem.product.main_image}
+            src={getImagePath(cartItem.product.main_image)}
             alt="Product Image"
             width={100}
             height={110}

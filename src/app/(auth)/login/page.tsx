@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AdminLoginForm from "@/components/auth/AdminLoginForm";
+import { getImagePath } from "@/utils/imagePath";
 
 /**
  * Composant de la page de connexion pour l'interface d'administration.
@@ -13,7 +14,7 @@ export default function Login() {
         {/* Logo de l'application */}
         <div className="w-20 h-20">
           <Image
-            src="/battant.png" // Chemin de l'image du logo
+            src={getImagePath("battant.png")} // Chemin de l'image du logo
             alt="Logo La Marque du Battant" // Texte alternatif pour l'accessibilité
             width={100} // Largeur de l'image
             height={100} // Hauteur de l'image
@@ -32,7 +33,7 @@ export default function Login() {
       <div className="flex-1 bg-gray-50 md:flex hidden justify-center items-center">
         <div className="h-[20rem] w-[30rem] flex justify-center items-center">
           <Image
-            src="/login.png" // Chemin de l'image d'illustration
+            src={getImagePath("login.png")} // Chemin de l'image d'illustration
             alt="Illustration de connexion administrative" // Texte alternatif pour l'accessibilité
             width={1000} // Largeur de l'image
             height={1000} // Hauteur de l'image

@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function ItemsCard() {
   return (
     <div className="w-60 flex flex-col relative overflow-hidden mt-4">
       <div className="w-full h-[18rem] cursor-pointer">
         <Image
-          src={"/defaultImage.png"}
+          src={getImagePath("defaultImage.png")}
           alt="Product Image"
           width={500}
           height={500}

@@ -5,6 +5,7 @@ import UserAuth from "@/components/store/auth/UserAuth";
 import Cart from "@/components/store/header/Cart";
 import BlogButton from "@/components/store/header/BlogButton";
 import Image from "next/image";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function HeaderWhite({ sticky }: boolean | any) {
   return (
@@ -15,7 +16,7 @@ export default function HeaderWhite({ sticky }: boolean | any) {
       <div className="h-full flex justify-between items-center relative md:hidden">
         <Link href="/" className="">
           <Image
-            src="/battant.png"
+            src={getImagePath("battant.png")}
             alt=""
             width={40}
             height={40}
@@ -34,7 +35,7 @@ export default function HeaderWhite({ sticky }: boolean | any) {
           <div className="flex items-center gap-8">
             <Link href="/" className="w-10">
               <Image
-                src="/battant.png"
+                src={getImagePath("battant.png")}
                 alt=""
                 width={40}
                 height={40}

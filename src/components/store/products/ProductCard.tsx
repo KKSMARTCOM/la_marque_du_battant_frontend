@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function ProductCard({
   product,

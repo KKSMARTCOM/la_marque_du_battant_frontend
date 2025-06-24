@@ -5,6 +5,7 @@ import { fetchClient } from "../../../../utils/fetchClient";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function FavorisCard({ favorite, onFavoriteRemoved }: any) {
   const [favLoading, setFavLoading] = useState(false);
@@ -34,7 +35,7 @@ export default function FavorisCard({ favorite, onFavoriteRemoved }: any) {
     <div className="w-60 flex flex-col relative overflow-hidden mt-4">
       <div className="w-full h-[18rem] cursor-pointer">
         <Image
-          src={favorite.product.main_image ? favorite.product.main_image : ""}
+          src={favorite.product.main_image ? getImagePath(favorite.product.main_image) : ""}
           alt="Product Image"
           width={500}
           height={500}

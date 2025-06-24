@@ -2,6 +2,7 @@ import React from "react";
 import { eventsData } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { getImagePath } from "@/utils/imagePath";
 
 // Définition des props attendues par la page dynamique (Next.js transmet params)
 interface EventDetailsPageProps {
@@ -31,7 +32,7 @@ export default function EventDetailsPage({ params }: EventDetailsPageProps) {
             {/* Image de couverture de l'événement */}
             <div className="w-full mt-8 sm:mt-12 md:mt-16">
               <div className="w-full h-48 sm:h-64 md:h-80 lg:h-96 bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#f8f9fc] rounded-xl"
-                style={{ backgroundImage: `url(/${event.image})` }}
+                style={{ backgroundImage: `url(${getImagePath(event.image)})` }}
               ></div>
             </div>
             {/* Fil d'Ariane (breadcrumb) */}
@@ -84,7 +85,7 @@ export default function EventDetailsPage({ params }: EventDetailsPageProps) {
                 href={"#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex min-w-0 cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#000000] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] transition-transform transition-shadow duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:text-[#000000] hover:bg-[#ffffff] hover:border-2 hover:border-[#000000]"
+                className=" flex min-w-0 cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#000000] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em]  transition-shadow duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:text-[#000000] hover:bg-[#ffffff] hover:border-2 hover:border-[#000000]"
               >
                 <span className="truncate">Je participe</span>
               </a>
