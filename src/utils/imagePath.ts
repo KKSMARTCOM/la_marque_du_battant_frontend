@@ -1,10 +1,12 @@
+let IS_PROD = "prod"; // Mets true pour la prod, false pour local
+const BASE_PATH = '/la_marque_du_battant_frontend'; // à changer si le repo change
+
 export function getImagePath(path: string) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   if (!path) return '';
-  // On retire les slashs inutiles
   let cleanPath = path.replace(/^\/+/, '');
-  let cleanBase = basePath.replace(/\/$/, '');
-  // Si basePath est vide (local), on veut /image.jpg
-  // Si basePath est défini (prod), on veut /la_marque_du_battant_frontend/image.jpg
-  return `/${cleanBase ? cleanBase + '/' : ''}${cleanPath}`;
+  if (IS_PROD === "prod") {
+    return `/${BASE_PATH.replace(/^\/+|\/+$/g, '')}/${cleanPath}`;
+  } else {
+    return `/${cleanPath}`;
+  }
 } 
