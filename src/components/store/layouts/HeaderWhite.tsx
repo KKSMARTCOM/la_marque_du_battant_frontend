@@ -15,7 +15,7 @@ export default function HeaderWhite({ sticky }: boolean | any) {
       <div className="h-full flex justify-between items-center relative md:hidden">
         <Link href="/" className="">
           <Image
-            src="/la_marque_du_battant_frontend/battant.png"
+            src="/battant.png"
             alt=""
             width={40}
             height={40}
@@ -34,7 +34,7 @@ export default function HeaderWhite({ sticky }: boolean | any) {
           <div className="flex items-center gap-8">
             <Link href="/" className="w-10">
               <Image
-                src="/la_marque_du_battant_frontend/battant.png"
+                src="/battant.png"
                 alt=""
                 width={40}
                 height={40}

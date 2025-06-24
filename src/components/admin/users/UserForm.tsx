@@ -95,7 +95,7 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
 
   useEffect(() => {
     fetchRoles();
-  }, []);
+  }, [fetchRoles]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {

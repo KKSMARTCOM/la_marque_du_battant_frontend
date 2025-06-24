@@ -85,7 +85,7 @@ export default function ProductDetail({ params }: any) {
         <div className="h-full w-full md:flex-1 custom-scroll">
           <div className="h-full">
             <Image
-              src={`/la_marque_du_battant_frontend/${product.main_image}`}
+              src={`/${product.main_image}`}
               alt="Main image"
               height={1000}
               width={800}
@@ -171,7 +171,7 @@ export default function ProductDetail({ params }: any) {
             return (
               <div key={index} className="h-[600px]">
                 <Image
-                  src={`/la_marque_du_battant_frontend/${item}`}
+                  src={`/${item}`}
                   alt="Second image"
                   height={100}
                   width={100}

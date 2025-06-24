@@ -70,6 +70,9 @@ type EventType = {
   country: string;
   startDate: Date;
   endDate: Date;
+  organizer?: string;
+  longDescription?: string;
+  buyLink?: string;
 };
 
 type RoleType = {
