@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function EventCard({ event }: any) {
   return (
     <div className="relative">
       <Link href={`/events-page/${event.id}`} className="block w-full h-[24rem] overflow-hidden relative group">
         <Image
-          src={event.image ? event.image : "defaultImage.png"}
+          src={getImagePath(event.image ? event.image : "defaultImage.png")}
           width={800}
           height={800}
           alt="Event Image"

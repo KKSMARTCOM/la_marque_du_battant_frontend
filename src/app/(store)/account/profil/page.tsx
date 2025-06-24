@@ -9,6 +9,7 @@ import Image from "next/image";
 import { getUserData, setUserData } from "@/lib/auth";
 import { Loader } from "lucide-react";
 import { fetchClient } from "../../../../../utils/fetchClient";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function Profil() {
   const [user, setUser] = useState({
@@ -112,7 +113,7 @@ export default function Profil() {
               <Image
                 width={100}
                 height={100}
-                src={user.avatar || "/user.png"}
+                src={getImagePath(user.avatar || "user.png")}
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover"
               />

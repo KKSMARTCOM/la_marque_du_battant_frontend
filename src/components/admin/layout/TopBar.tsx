@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
 import { navLinks } from "@/lib/constants";
+import { getImagePath } from "@/utils/imagePath";
 
 const TopBar = () => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
@@ -14,7 +15,7 @@ const TopBar = () => {
 
   return (
     <div className="sticky top-0 z-20 w-full flex justify-between items-center px-8 py-4 bg-blue-2 shadow-xl lg:hidden">
-      <Image src="./battant.png" alt="logo" width={50} height={20} />
+      <Image src={getImagePath("battant.png")} alt="logo" width={50} height={20} />
 
       <div className="flex gap-8 max-md:hidden">
         {navLinks.map((link) => (

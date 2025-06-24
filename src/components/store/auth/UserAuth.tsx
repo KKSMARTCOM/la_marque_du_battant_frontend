@@ -8,6 +8,7 @@ import { getToken } from "@/lib/auth";
 import { useRouter, usePathname } from "next/navigation";
 import CustomerRegisterForm from "./CustomerRegisterForm";
 import ResetPasswordForm from "./ResetPasswordForm";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function Footer() {
   const [open, setOpen] = useState(false);
@@ -68,7 +69,7 @@ export default function Footer() {
               </div>
               <div className="mt-[5rem]">
                 <div className="w-full flex justify-center py-[2rem]">
-                  <Image src="./battant.png" alt="" width={100} height={100} />
+                  <Image src={getImagePath("battant.png")} alt="" width={100} height={100} />
                 </div>
                 {authMethod === "login" && (
                   <CustomerLoginForm

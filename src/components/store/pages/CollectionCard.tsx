@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function CollectionCard({ collection }: any) {
   const router = useRouter();
@@ -9,7 +10,7 @@ export default function CollectionCard({ collection }: any) {
     <div className="w-full h-[28rem] bg-gradient-to-t from-gray-400 to-gray-50 flex flex-col justify-center items-center relative">
       <div className="w-full h-full overflow-hidden">
         <Image
-          src={collection.image ? collection.image : "defaultImage.png"}
+          src={getImagePath(collection.image ? collection.image : "defaultImage.png")}
           alt="Collection Image"
           width={800}
           height={800}

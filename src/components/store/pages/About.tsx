@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function About() {
   return (
@@ -6,7 +7,7 @@ export default function About() {
       <div className="w-full flex justify-center md:w-1/2">
         <div className="h-full md:h-[80%] w-full md:w-[80%] overflow-hidden">
           <Image
-            src="./citation.jpg"
+            src={getImagePath("citation.jpg")}
             width={800}
             height={800}
             alt=""

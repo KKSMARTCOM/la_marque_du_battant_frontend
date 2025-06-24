@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Loader } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { productsData } from "@/lib/data";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function ProductDetail({ params }: any) {
   const [product, setProduct] = useState<any>({});
@@ -85,7 +86,7 @@ export default function ProductDetail({ params }: any) {
         <div className="h-full w-full md:flex-1 custom-scroll">
           <div className="h-full">
             <Image
-              src={`/${product.main_image}`}
+              src={getImagePath(product.main_image)}
               alt="Main image"
               height={1000}
               width={800}
@@ -171,7 +172,7 @@ export default function ProductDetail({ params }: any) {
             return (
               <div key={index} className="h-[600px]">
                 <Image
-                  src={`/${item}`}
+                  src={getImagePath(item)}
                   alt="Second image"
                   height={100}
                   width={100}

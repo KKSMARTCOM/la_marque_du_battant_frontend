@@ -4,6 +4,7 @@ import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function CartModal({
   open,
@@ -60,7 +61,7 @@ export default function CartModal({
                   <div className="px-6 flex justify-center items-center">
                     <div className="w-[14rem] h-[14rem]">
                       <Image
-                        src={`/${product.main_image}`}
+                        src={getImagePath(product.main_image)}
                         alt="Product Image"
                         width={100}
                         height={100}

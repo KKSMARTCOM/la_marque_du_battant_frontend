@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import { getImagePath } from "@/utils/imagePath";
 
 interface EventDetailDrawerProps {
   open: boolean;
@@ -48,8 +49,10 @@ const EventDetailDrawer: React.FC<EventDetailDrawerProps> = ({ open, onClose, ev
         {/* Image de l'événement en haut, arrondie uniquement en haut */}
         <div className="relative w-full h-[160px] sm:h-[180px] overflow-hidden rounded-t-2xl flex-shrink-0">
           <Image
-            src={event.image || "/defaultImage.png"}
+            src={getImagePath(event.image || "defaultImage.png")}
             alt={event.name}
+            width={100}
+            height={100}
             fill
             className="object-cover w-full h-full rounded-t-2xl"
             priority
@@ -74,7 +77,7 @@ const EventDetailDrawer: React.FC<EventDetailDrawerProps> = ({ open, onClose, ev
           <div className="mt-auto pb-2">
             <Button
               variant="outline"
-              className="w-full border-black text-black rounded-full py-3 text-lg font-semibold shadow-sm hover:bg-gray-100 transition"
+              className=" border-black text-black rounded-full py-3 text-lg font-semibold shadow-sm hover:bg-gray-100 transition"
               style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.07)" }}
             >
               Je participe

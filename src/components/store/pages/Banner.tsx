@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CustomWhiteButton from "../CustomWhiteButton";
 import { useState } from "react";
+import { getImagePath } from "@/utils/imagePath";
 
 export default function Banner() {
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ export default function Banner() {
     >
       <div className="w-full max-w-7xl mx-auto h-[60vw] sm:h-[400px] md:h-[450px] lg:h-[500px] relative rounded-xl overflow-hidden">
       <Image
-        src="/banner.jpg"
+        src={getImagePath("banner.jpg")}
         width={1920}
         height={1080}
         alt="Bannière La Marque du Battant - Collection exclusive"
