@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="fr"> {/* Définition de la langue de la page pour l'accessibilité */}
       <body className={`h-full ${fontSans.className}`}> {/* Application de la police et hauteur complète */}
         {/* Conteneur principal qui centre le contenu et limite sa largeur sur les grands écrans */}
-        <div className="w-full max-w-7xl mx-auto">
+        <div className="w-full mx-auto">
           {/* Fournisseurs de contexte pour gérer l'état global de l'application */}
           <ProductProvider> {/* Contexte pour la gestion des produits */}
             <CartProvider> {/* Contexte pour la gestion du panier d'achat */}

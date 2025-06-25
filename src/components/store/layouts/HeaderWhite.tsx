@@ -10,7 +10,7 @@ import { getImagePath } from "@/utils/imagePath";
 export default function HeaderWhite({ sticky }: boolean | any) {
   return (
     <div
-      className={`h-14 px-6 left-0 top-0 right-0 container mx-auto overflow-x-hidden border-b fixed bg-white text-black z-[999]`}
+      className={`h-14 px-6 left-0 top-0 right-0 w-full overflow-x-hidden border-b fixed bg-white text-black z-[999]`}
     >
       {/* MOBILE */}
       <div className="h-full flex justify-between items-center relative md:hidden">

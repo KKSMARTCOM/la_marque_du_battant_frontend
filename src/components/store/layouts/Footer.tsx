@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="bg-black pt-10 pb-2 px-6 text-white container mx-auto">
+    <div className="bg-black pt-10 pb-2 px-6 text-white w-full">
       {/* TOP */}
       <div className="flex max-lg:block">
         {/* LEFT */}

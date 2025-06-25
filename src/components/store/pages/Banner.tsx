@@ -21,7 +21,7 @@ export default function Banner() {
       role="banner"
       aria-label="Bannière principale"
     >
-      <div className="w-full max-w-7xl mx-auto h-[60vw] sm:h-[400px] md:h-[450px] lg:h-[500px] relative rounded-xl overflow-hidden">
+      <div className="w-full h-[60vw] sm:h-[400px] md:h-[450px] lg:h-[500px] relative overflow-hidden">
       <Image
         src={getImagePath("banner.jpg")}
         width={1920}

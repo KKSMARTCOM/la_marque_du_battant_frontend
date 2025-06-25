@@ -10,7 +10,7 @@ export default function ProductStoreLists() {
   return (
     <Fragment>
       <section className="px-4 sm:px-6 pt-8 sm:pt-10 pb-4 sm:pb-6 overflow-x-hidden">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           <header className="mb-4">
             <p className="text-gray-500 text-sm mb-2">Achetez les catégories</p>
             <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center mb-4">
