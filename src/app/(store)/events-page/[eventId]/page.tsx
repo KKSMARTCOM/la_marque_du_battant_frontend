@@ -27,8 +27,8 @@ export default function EventDetailsPage({ params }: EventDetailsPageProps) {
     // Structure principale de la page, avec le style global et le background
     <div className="relative flex size-full min-h-screen flex-col bg-[#f8f9fc] group/design-root overflow-x-hidden" style={{ fontFamily: '"Plus Jakarta Sans", "Noto Sans", sans-serif' }}>
       <div className="layout-container flex h-full grow flex-col">
-        <div className="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-          <div className="layout-content-container flex flex-col w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl flex-1">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 flex flex-1 justify-center py-5">
+          <div className="layout-content-container flex flex-col w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl mx-auto flex-1">
             {/* Image de couverture de l'événement */}
             <div className="w-full mt-8 sm:mt-12 md:mt-16">
               <div className="w-full h-48 sm:h-64 md:h-80 lg:h-96 bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#f8f9fc] rounded-xl"
