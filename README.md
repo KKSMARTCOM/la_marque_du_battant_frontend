@@ -35,6 +35,7 @@
 - [📄 Licence](#-licence)
 - [📞 Contact](#-contact)
 - [📅 Gestion des Événements](#-gestion-des-événements)
+- [🖼️ Gestion des images et configuration du chemin (GitHub Pages)](#️-gestion-des-images-et-configuration-du-chemin-github-pages)
 
 ---
 
@@ -527,6 +528,38 @@ copies or substantial portions of the Software.
 ### 💼 Support Commercial
 - **Heures d'ouverture** : Lundi - Vendredi, 9h - 18h (GMT)
 - **Support technique** : [support@lamarquedubattant.com](mailto:support@lamarquedubattant.com)
+
+---
+
+## 🖼️ Gestion des images et configuration du chemin (GitHub Pages)
+
+### Utilisation de getImagePath
+
+Pour garantir que les images s'affichent correctement en local **et** en production (notamment sur GitHub Pages), toutes les images doivent être référencées via la fonction utilitaire :
+
+```js
+import { getImagePath } from "@/utils/imagePath";
+
+<img src={getImagePath("fakeimg/monimage.jpg")} />
+```
+
+### Configuration du chemin de base
+
+Dans le fichier `src/utils/imagePath.ts`, deux constantes contrôlent le comportement :
+
+```js
+let IS_PROD = "local"; // Mets "prod" pour la prod, "local" pour le développement
+const BASE_PATH = '/la_marque_du_battant_frontend'; // à changer si le nom du repo change
+```
+- **En local** : laisse `IS_PROD = "local"` → les images seront accessibles via `/fakeimg/monimage.jpg`
+- **En production** : mets `IS_PROD = "prod"` **avant de builder/déployer** → les images seront accessibles via `/la_marque_du_battant_frontend/fakeimg/monimage.jpg`
+
+**⚠️ N'oublie pas de modifier `IS_PROD` avant chaque build/déploiement !**
+
+### Bonnes pratiques
+- Ne jamais mettre de `/` devant le nom d'image passé à `getImagePath`.
+- Toutes les images doivent être dans le dossier `public/` ou ses sous-dossiers.
+- Si tu changes de nom de repo, adapte la constante `BASE_PATH`.
 
 ---
 

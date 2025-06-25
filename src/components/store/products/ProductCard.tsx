@@ -58,9 +58,7 @@ export default function ProductCard({
         </div>
 
         <Image
-          src={`/${
-            product.main_image ? product.main_image : "defaultImage.png"
-          }`}
+          src={getImagePath(product.main_image ? product.main_image : "defaultImage.png")}
           alt="Product Image"
           width={150}
           height={150}
