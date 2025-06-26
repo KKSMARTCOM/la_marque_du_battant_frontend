@@ -1,4 +1,4 @@
-let IS_PROD = "local"; // Mets true pour la prod, false pour local
+let IS_PROD = "prod"; // Mets true pour la prod, false pour local
 const BASE_PATH = '/la_marque_du_battant_frontend'; // à changer si le repo change
 
 export function getImagePath(path: string) {

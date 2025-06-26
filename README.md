@@ -1,5 +1,15 @@
 # 🛍️ La Marque du Battant - E-commerce
 
+---
+
+## 📝 Historique des modifications
+
+- **Juin 2024** :
+  - Ajout d'une section Historique des modifications (changelog)
+  - Clarification de la gestion des événements (mock data, navigation, suppression du drawer)
+  - Précisions sur la gestion des images et la variable `IS_PROD`
+  - Corrections mineures de formulation et de structure
+
 <div align="center">
 
 ![Next.js](https://img.shields.io/badge/Next.js-14.2.4-black?style=for-the-badge&logo=next.js)
@@ -93,13 +103,13 @@
 
 ### Fonctionnement
 
-- Les données des événements sont actuellement mockées dans le fichier `src/lib/data.ts` (tableau `eventsData`).
+- Les données des événements sont actuellement **mockées** dans le fichier `src/lib/data.ts` (tableau `eventsData`).
 - Chaque carte événement redirige vers la page de détails correspondante au clic (plus de preview/drawer).
 - La page de détails est 100% responsive et reprend fidèlement le design fourni.
 - Le bouton "Je participe" est animé et occupe toute la largeur sur mobile et desktop.
 - Si l'id de l'événement n'existe pas, une page 404 s'affiche.
 
-### Suppression du Preview
+### Suppression du système de prévisualisation (drawer)
 
 - L'ancien système de prévisualisation rapide (drawer/wrapper au clic sur l'icône œil) a été supprimé pour simplifier l'expérience utilisateur.
 - Désormais, toute l'interaction se fait via la navigation classique (clic sur la carte = accès à la page de détails).
@@ -535,7 +545,7 @@ copies or substantial portions of the Software.
 
 ### Utilisation de getImagePath
 
-Pour garantir que les images s'affichent correctement en local **et** en production (notamment sur GitHub Pages), toutes les images doivent être référencées via la fonction utilitaire :
+Pour garantir que les images s'affichent correctement en local **et** en production (notamment sur GitHub Pages), toutes les images doivent être référencées via la fonction utilitaire :
 
 ```js
 import { getImagePath } from "@/utils/imagePath";
@@ -545,21 +555,22 @@ import { getImagePath } from "@/utils/imagePath";
 
 ### Configuration du chemin de base
 
-Dans le fichier `src/utils/imagePath.ts`, deux constantes contrôlent le comportement :
+Dans le fichier `src/utils/imagePath.ts`, deux constantes contrôlent le comportement :
 
 ```js
 let IS_PROD = "local"; // Mets "prod" pour la prod, "local" pour le développement
 const BASE_PATH = '/la_marque_du_battant_frontend'; // à changer si le nom du repo change
 ```
-- **En local** : laisse `IS_PROD = "local"` → les images seront accessibles via `/fakeimg/monimage.jpg`
-- **En production** : mets `IS_PROD = "prod"` **avant de builder/déployer** → les images seront accessibles via `/la_marque_du_battant_frontend/fakeimg/monimage.jpg`
+- **En local** : laisse `IS_PROD = "local"` → les images seront accessibles via `/fakeimg/monimage.jpg`
+- **En production** : mets `IS_PROD = "prod"` **avant de builder/déployer** → les images seront accessibles via `/la_marque_du_battant_frontend/fakeimg/monimage.jpg`
 
-**⚠️ N'oublie pas de modifier `IS_PROD` avant chaque build/déploiement !**
+**⚠️ N'oublie pas de modifier `IS_PROD` avant chaque build/déploiement !**
 
 ### Bonnes pratiques
 - Ne jamais mettre de `/` devant le nom d'image passé à `getImagePath`.
 - Toutes les images doivent être dans le dossier `public/` ou ses sous-dossiers.
 - Si tu changes de nom de repo, adapte la constante `BASE_PATH`.
+- Vérifie toujours le rendu des images en local **et** en production.
 
 ---
 
