@@ -38,16 +38,16 @@ export default function EventDetailsPage({ params }: EventDetailsPageProps) {
             {/* Fil d'Ariane (breadcrumb) */}
             <div className="flex flex-wrap gap-2 p-2 sm:p-4">
               {/* Lien vers la liste des événements */}
-              <Link className="text-[#4c629a] text-base font-medium leading-normal" href="/events-page">Événements</Link>
-              <span className="text-[#4c629a] text-base font-medium leading-normal">/</span>
+              <Link className="text-[#000000] text-base font-medium leading-normal" href="/events-page">Événements</Link>
+              <span className="text-[#000000] text-base font-medium leading-normal">/</span>
               {/* Nom de l'événement courant */}
-              <span className="text-[#0d111b] text-base font-medium leading-normal">{event.name}</span>
+              <span className="text-[#606061] text-base font-medium leading-normal">{event.name}</span>
             </div>
             {/* Titre et organisateur */}
             <div className="flex flex-wrap justify-between gap-3 p-2 sm:p-4">
               <div className="flex min-w-72 flex-col gap-3">
                 <p className="text-[#0d111b] tracking-light text-[32px] font-bold leading-tight">{event.name}</p>
-                <p className="text-[#4c629a] text-sm font-normal leading-normal">Organisé par {event.organizer}</p>
+                <p className="text-[#606061] text-sm font-normal leading-normal">Organisé par {event.organizer}</p>
               </div>
             </div>
             {/* Onglets (non dynamiques ici) 
